@@ -1,0 +1,55 @@
+image: node:20
+
+stages:
+  - install
+  - test
+  - build
+
+install:angular-ssr:
+  stage: install
+  script:
+    - echo "Installing dependencies"
+    - cd angular/ssr
+    - npm ci
+  cache:
+    paths:
+      - angular/ssr/node_modules/
+    policy: pull-push
+  artifacts:
+    paths:
+      - angular/ssr/node_modules/
+    expire_in: 1h
+  rules:
+    - changes:
+        - angular/ssr/**/*
+
+test:angular-ssr:
+  stage: test
+  script:
+    - echo "Installing Chromium for headless tests"
+    - apt-get update && apt-get install -y chromium
+    - export CHROME_BIN=/usr/bin/chromium
+    - cd angular/ssr
+    - echo "Running Angular unit tests in ChromeHeadless"
+    - npm run test:ci
+  dependencies:
+    - install:angular-ssr
+  rules:
+    - changes:
+        - angular/ssr/**/*
+
+build:angular-ssr:
+  stage: build
+  script:
+    - echo "Building Angular app for production"
+    - cd angular/ssr
+    - npm run build --configuration=production
+  dependencies:
+    - install:angular-ssr
+  artifacts:
+    paths:
+      - angular/ssr/dist/
+    expire_in: 1 week
+  rules:
+    - changes:
+        - angular/ssr/**/*

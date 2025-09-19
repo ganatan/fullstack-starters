@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"   # port AMQP pour Spring Boot
+      - "15672:15672" # interface web RabbitMQ
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    networks:
+      - backend-net
+
+networks:
+  backend-net:
+    driver: bridge

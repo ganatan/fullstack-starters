@@ -1,0 +1,72 @@
+image: maven:3.9-eclipse-temurin-21
+
+stages:
+  - install
+  - lint
+  - test
+  - build
+
+install:springboot-checkstyle:
+  stage: install
+  script:
+    - echo "Installing dependencies"
+    - cd springboot/checkstyle
+    - mvn -B -DskipTests verify
+  cache:
+    paths:
+      - springboot/checkstyle/.m2/repository
+    policy: pull-push
+  artifacts:
+    paths:
+      - springboot/checkstyle/.m2/repository
+    expire_in: 1h
+  rules:
+    - changes:
+        - springboot/checkstyle/**/*
+
+lint:springboot-checkstyle:
+  stage: lint
+  script:
+    - echo "Running Checkstyle"
+    - cd springboot/checkstyle
+    - mvn -B checkstyle:check
+  dependencies:
+    - install:springboot-checkstyle
+  rules:
+    - changes:
+        - springboot/checkstyle/**/*
+
+test:springboot-checkstyle:
+  stage: test
+  script:
+    - echo "Running unit tests"
+    - cd springboot/checkstyle
+    - mvn -B clean test
+  dependencies:
+    - install:springboot-checkstyle
+  artifacts:
+    when: always
+    reports:
+      junit: springboot/checkstyle/target/surefire-reports/*.xml
+    paths:
+      - springboot/checkstyle/target/surefire-reports/
+  rules:
+    - changes:
+        - springboot/checkstyle/**/*
+
+build:springboot-checkstyle:
+  stage: build
+  script:
+    - echo "Building Spring Boot JAR"
+    - cd springboot/checkstyle
+    - mvn -B -DskipTests package
+  dependencies:
+    - install:springboot-checkstyle
+  artifacts:
+    paths:
+      - springboot/checkstyle/target/*.jar
+      - springboot/checkstyle/target/*.war
+    expire_in: 1 week
+  rules:
+    - changes:
+        - springboot/checkstyle/**/*

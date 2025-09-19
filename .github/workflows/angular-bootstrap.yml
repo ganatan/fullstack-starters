@@ -1,0 +1,74 @@
+name: angular-bootstrap
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - "angular/bootstrap/**"
+  pull_request:
+    branches: [ master ]
+    paths:
+      - "angular/bootstrap/**"
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    container: node:20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
+      - name: Install dependencies
+        run: |
+          cd angular/bootstrap
+          npm ci
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        with:
+          path: angular/bootstrap/node_modules
+          key: ${{ runner.os }}-angular-bootstrap-${{ hashFiles('angular/bootstrap/package-lock.json') }}
+
+  test:
+    runs-on: ubuntu-latest
+    container: node:20
+    needs: install
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
+      - name: Install Chromium for headless tests
+        run: |
+          apt-get update
+          apt-get install -y chromium
+      - name: Set CHROME_BIN env variable
+        run: echo "CHROME_BIN=$(which chromium)" >> $GITHUB_ENV
+      - name: Install dependencies
+        run: |
+          cd angular/bootstrap
+          npm ci
+      - name: Run Angular unit tests in ChromeHeadless
+        run: |
+          cd angular/bootstrap
+          npm run test:ci
+
+  build:
+    runs-on: ubuntu-latest
+    container: node:20
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
+      - name: Install dependencies
+        run: |
+          cd angular/bootstrap
+          npm ci
+      - name: Build Angular app for production
+        run: |
+          cd angular/bootstrap
+          npm run build --configuration=production
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: angular-bootstrap-dist
+          path: angular/bootstrap/dist/

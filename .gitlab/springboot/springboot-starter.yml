@@ -1,0 +1,59 @@
+image: maven:3.9-eclipse-temurin-21
+
+stages:
+  - install
+  - test
+  - build
+
+install:springboot-starter:
+  stage: install
+  script:
+    - echo "Installing dependencies"
+    - cd springboot/starter
+    - mvn -B -DskipTests verify
+  cache:
+    paths:
+      - springboot/starter/.m2/repository
+    policy: pull-push
+  artifacts:
+    paths:
+      - springboot/starter/.m2/repository
+    expire_in: 1h
+  rules:
+    - changes:
+        - springboot/starter/**/*
+
+test:springboot-starter:
+  stage: test
+  script:
+    - echo "Running unit tests"
+    - cd springboot/starter
+    - mvn -B clean test
+  dependencies:
+    - install:springboot-starter
+  artifacts:
+    when: always
+    reports:
+      junit: springboot/starter/target/surefire-reports/*.xml
+    paths:
+      - springboot/starter/target/surefire-reports/
+  rules:
+    - changes:
+        - springboot/starter/**/*
+
+build:springboot-starter:
+  stage: build
+  script:
+    - echo "Building Spring Boot JAR"
+    - cd springboot/starter
+    - mvn -B -DskipTests package
+  dependencies:
+    - install:springboot-starter
+  artifacts:
+    paths:
+      - springboot/starter/target/*.jar
+      - springboot/starter/target/*.war
+    expire_in: 1 week
+  rules:
+    - changes:
+        - springboot/starter/**/*
