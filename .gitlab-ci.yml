@@ -4,7 +4,7 @@ workflow:
         - angular/angular-starter/**/*
         - angular/angular-bootstrap/**/*
         - springboot/springboot-starter/**/*
-        - springboot/checkstyle/**/*
+        - springboot/springboot-checkstyle/**/*
     - when: never
 
 stages:
@@ -40,7 +40,7 @@ trigger-springboot-checkstyle:
     include: .gitlab/springboot/springboot-checkstyle.yml
   rules:
     - changes:
-        - springboot/checkstyle/**/*
+        - springboot/springboot-checkstyle/**/*
 
 
 # stages:
