@@ -5,51 +5,110 @@ stages:
   - test
   - build
 
-install:angular-starter:
-  stage: install
-  script:
-    - echo "Installing dependencies"
-    - cd angular/angular-starter
-    - npm ci
+.default-angular-starter:
+  variables:
+    PROJECT_DIR: angular/angular-starter
   cache:
+    key: angular-starter
     paths:
-      - angular/angular-starter/node_modules/
+      - $PROJECT_DIR/node_modules/
     policy: pull-push
   artifacts:
     paths:
-      - angular/angular-starter/node_modules/
+      - $PROJECT_DIR/node_modules/
     expire_in: 1h
   rules:
     - changes:
         - angular/angular-starter/**/*
 
+install:angular-starter:
+  stage: install
+  extends: .default-angular-starter
+  script:
+    - echo "Installing dependencies"
+    - cd $PROJECT_DIR
+    - npm ci
+
 test:angular-starter:
   stage: test
+  extends: .default-angular-starter
+  dependencies:
+    - install:angular-starter
   script:
     - echo "Installing Chromium for headless tests"
     - apt-get update && apt-get install -y chromium
     - export CHROME_BIN=/usr/bin/chromium
-    - cd angular/angular-starter
+    - cd $PROJECT_DIR
     - echo "Running Angular unit tests in ChromeHeadless"
     - npm run test:ci
-  dependencies:
-    - install:angular-starter
-  rules:
-    - changes:
-        - angular/angular-starter/**/*
 
 build:angular-starter:
   stage: build
-  script:
-    - echo "Building Angular app for production"
-    - cd angular/angular-starter
-    - npm run build --configuration=production
+  extends: .default-angular-starter
   dependencies:
     - install:angular-starter
+  script:
+    - echo "Building Angular app for production"
+    - cd $PROJECT_DIR
+    - npm run build --configuration=production
   artifacts:
     paths:
-      - angular/angular-starter/dist/
+      - $PROJECT_DIR/dist/
     expire_in: 1 week
-  rules:
-    - changes:
-        - angular/angular-starter/**/*
+
+
+# image: node:20
+
+# stages:
+#   - install
+#   - test
+#   - build
+
+# install:angular-starter:
+#   stage: install
+#   script:
+#     - echo "Installing dependencies"
+#     - cd angular/angular-starter
+#     - npm ci
+#   cache:
+#     paths:
+#       - angular/angular-starter/node_modules/
+#     policy: pull-push
+#   artifacts:
+#     paths:
+#       - angular/angular-starter/node_modules/
+#     expire_in: 1h
+#   rules:
+#     - changes:
+#         - angular/angular-starter/**/*
+
+# test:angular-starter:
+#   stage: test
+#   script:
+#     - echo "Installing Chromium for headless tests"
+#     - apt-get update && apt-get install -y chromium
+#     - export CHROME_BIN=/usr/bin/chromium
+#     - cd angular/angular-starter
+#     - echo "Running Angular unit tests in ChromeHeadless"
+#     - npm run test:ci
+#   dependencies:
+#     - install:angular-starter
+#   rules:
+#     - changes:
+#         - angular/angular-starter/**/*
+
+# build:angular-starter:
+#   stage: build
+#   script:
+#     - echo "Building Angular app for production"
+#     - cd angular/angular-starter
+#     - npm run build --configuration=production
+#   dependencies:
+#     - install:angular-starter
+#   artifacts:
+#     paths:
+#       - angular/angular-starter/dist/
+#     expire_in: 1 week
+#   rules:
+#     - changes:
+#         - angular/angular-starter/**/*

@@ -1,10 +1,5 @@
 image: node:20
 
-stages:
-  - install
-  - test
-  - build
-
 install:angular-bootstrap:
   stage: install
   script:
