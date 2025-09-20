@@ -1,13 +1,42 @@
+stages:
+  - trigger
+
+trigger-angular-starter:
+  stage: trigger
+  trigger:
+    include: .gitlab/angular/angular-starter.yml
+  rules:
+    - changes:
+        - angular/angular-starter/**/*
+
+trigger-angular-bootstrap:
+  stage: trigger
+  trigger:
+    include: .gitlab/angular/angular-bootstrap.yml
+  rules:
+    - changes:
+        - angular/angular-bootstrap/**/*
+
+trigger-springboot-starter:
+  stage: trigger
+  trigger:
+    include: .gitlab/springboot/springboot-starter.yml
+  rules:
+    - changes:
+        - springboot/springboot-starter/**/*
+
+
+
 # stages:
 #   - install
 #   - lint
 #   - test
 #   - build
 
-include:
-  - local: .gitlab/angular/angular-starter.yml
-  - local: .gitlab/angular/angular-bootstrap.yml
-  - local: .gitlab/springboot/springboot-starter.yml
+# include:
+#   - local: .gitlab/angular/angular-starter.yml
+#   - local: .gitlab/angular/angular-bootstrap.yml
+#   - local: .gitlab/springboot/springboot-starter.yml
 
   # - local: .gitlab/angular/angular-eslint.yml
   # - local: .gitlab/angular/angular-ssr.yml
