@@ -1,3 +1,9 @@
+workflow:
+  rules:
+    - changes:
+        - angular/angular-starter/**/*
+    - when: never
+
 image: node:20
 
 stages:
@@ -17,9 +23,6 @@ stages:
     paths:
       - $PROJECT_DIR/node_modules/
     expire_in: 1h
-  rules:
-    - changes:
-        - angular/angular-starter/**/*
 
 install:angular-starter:
   stage: install
@@ -55,4 +58,3 @@ build:angular-starter:
     paths:
       - $PROJECT_DIR/dist/
     expire_in: 1 week
-

@@ -1,3 +1,9 @@
+workflow:
+  rules:
+    - changes:
+        - springboot/springboot-starter/**/*
+    - when: never
+
 image: maven:3.9-eclipse-temurin-21
 
 stages:
@@ -17,9 +23,6 @@ stages:
     paths:
       - $PROJECT_DIR/.m2/repository
     expire_in: 1h
-  rules:
-    - changes:
-        - springboot/springboot-starter/**/*
 
 install:springboot-starter:
   stage: install
@@ -59,63 +62,3 @@ build:springboot-starter:
       - $PROJECT_DIR/target/*.jar
       - $PROJECT_DIR/target/*.war
     expire_in: 1 week
-
-# image: maven:3.9-eclipse-temurin-21
-
-# stages:
-#   - install
-#   - test
-#   - build
-
-# install:springboot-starter:
-#   stage: install
-#   script:
-#     - echo "Installing dependencies"
-#     - cd springboot/springboot-starter
-#     - mvn -B -DskipTests verify
-#   cache:
-#     paths:
-#       - springboot/springboot-starter/.m2/repository
-#     policy: pull-push
-#   artifacts:
-#     paths:
-#       - springboot/springboot-starter/.m2/repository
-#     expire_in: 1h
-#   rules:
-#     - changes:
-#         - springboot/springboot-starter/**/*
-
-# test:springboot-starter:
-#   stage: test
-#   script:
-#     - echo "Running unit tests"
-#     - cd springboot/springboot-starter
-#     - mvn -B clean test
-#   dependencies:
-#     - install:springboot-starter
-#   artifacts:
-#     when: always
-#     reports:
-#       junit: springboot/springboot-starter/target/surefire-reports/*.xml
-#     paths:
-#       - springboot/springboot-starter/target/surefire-reports/
-#   rules:
-#     - changes:
-#         - springboot/springboot-starter/**/*
-
-# build:springboot-starter:
-#   stage: build
-#   script:
-#     - echo "Building Spring Boot JAR"
-#     - cd springboot/springboot-starter
-#     - mvn -B -DskipTests package
-#   dependencies:
-#     - install:springboot-starter
-#   artifacts:
-#     paths:
-#       - springboot/springboot-starter/target/*.jar
-#       - springboot/springboot-starter/target/*.war
-#     expire_in: 1 week
-#   rules:
-#     - changes:
-#         - springboot/springboot-starter/**/*
