@@ -1,50 +1,109 @@
 image: node:20
 
-install:angular-bootstrap:
-  stage: install
-  script:
-    - echo "Installing dependencies"
-    - cd angular/angular-bootstrap
-    - npm ci
+stages:
+  - install
+  - test
+  - build
+
+.default-angular-bootstrap:
+  variables:
+    PROJECT_DIR: angular/angular-bootstrap
   cache:
+    key: angular-bootstrap
     paths:
-      - angular/angular-bootstrap/node_modules/
+      - $PROJECT_DIR/node_modules/
     policy: pull-push
   artifacts:
     paths:
-      - angular/angular-bootstrap/node_modules/
+      - $PROJECT_DIR/node_modules/
     expire_in: 1h
   rules:
     - changes:
         - angular/angular-bootstrap/**/*
 
+install:angular-bootstrap:
+  stage: install
+  extends: .default-angular-bootstrap
+  script:
+    - echo "Installing dependencies"
+    - cd $PROJECT_DIR
+    - npm ci
+
 test:angular-bootstrap:
   stage: test
+  extends: .default-angular-bootstrap
+  dependencies:
+    - install:angular-bootstrap
   script:
     - echo "Installing Chromium for headless tests"
     - apt-get update && apt-get install -y chromium
     - export CHROME_BIN=/usr/bin/chromium
-    - cd angular/angular-bootstrap
+    - cd $PROJECT_DIR
     - echo "Running Angular unit tests in ChromeHeadless"
     - npm run test:ci
-  dependencies:
-    - install:angular-bootstrap
-  rules:
-    - changes:
-        - angular/angular-bootstrap/**/*
 
 build:angular-bootstrap:
   stage: build
-  script:
-    - echo "Building Angular app for production"
-    - cd angular/angular-bootstrap
-    - npm run build --configuration=production
+  extends: .default-angular-bootstrap
   dependencies:
     - install:angular-bootstrap
+  script:
+    - echo "Building Angular app for production"
+    - cd $PROJECT_DIR
+    - npm run build --configuration=production
   artifacts:
     paths:
-      - angular/angular-bootstrap/dist/
+      - $PROJECT_DIR/dist/
     expire_in: 1 week
-  rules:
-    - changes:
-        - angular/angular-bootstrap/**/*
+
+
+# image: node:20
+
+# install:angular-bootstrap:
+#   stage: install
+#   script:
+#     - echo "Installing dependencies"
+#     - cd angular/angular-bootstrap
+#     - npm ci
+#   cache:
+#     paths:
+#       - angular/angular-bootstrap/node_modules/
+#     policy: pull-push
+#   artifacts:
+#     paths:
+#       - angular/angular-bootstrap/node_modules/
+#     expire_in: 1h
+#   rules:
+#     - changes:
+#         - angular/angular-bootstrap/**/*
+
+# test:angular-bootstrap:
+#   stage: test
+#   script:
+#     - echo "Installing Chromium for headless tests"
+#     - apt-get update && apt-get install -y chromium
+#     - export CHROME_BIN=/usr/bin/chromium
+#     - cd angular/angular-bootstrap
+#     - echo "Running Angular unit tests in ChromeHeadless"
+#     - npm run test:ci
+#   dependencies:
+#     - install:angular-bootstrap
+#   rules:
+#     - changes:
+#         - angular/angular-bootstrap/**/*
+
+# build:angular-bootstrap:
+#   stage: build
+#   script:
+#     - echo "Building Angular app for production"
+#     - cd angular/angular-bootstrap
+#     - npm run build --configuration=production
+#   dependencies:
+#     - install:angular-bootstrap
+#   artifacts:
+#     paths:
+#       - angular/angular-bootstrap/dist/
+#     expire_in: 1 week
+#   rules:
+#     - changes:
+#         - angular/angular-bootstrap/**/*
