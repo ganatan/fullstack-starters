@@ -1,3 +1,12 @@
+workflow:
+  rules:
+    - changes:
+        - angular/angular-starter/**/*
+        - angular/angular-bootstrap/**/*
+        - springboot/springboot-starter/**/*
+        - springboot/checkstyle/**/*
+    - when: never
+
 stages:
   - trigger
 
@@ -31,7 +40,43 @@ trigger-springboot-checkstyle:
     include: .gitlab/springboot/springboot-checkstyle.yml
   rules:
     - changes:
-        - springboot/springboot-checkstyle/**/*
+        - springboot/checkstyle/**/*
+
+
+# stages:
+#   - trigger
+
+# trigger-angular-starter:
+#   stage: trigger
+#   trigger:
+#     include: .gitlab/angular/angular-starter.yml
+#   rules:
+#     - changes:
+#         - angular/angular-starter/**/*
+
+# trigger-angular-bootstrap:
+#   stage: trigger
+#   trigger:
+#     include: .gitlab/angular/angular-bootstrap.yml
+#   rules:
+#     - changes:
+#         - angular/angular-bootstrap/**/*
+
+# trigger-springboot-starter:
+#   stage: trigger
+#   trigger:
+#     include: .gitlab/springboot/springboot-starter.yml
+#   rules:
+#     - changes:
+#         - springboot/springboot-starter/**/*
+
+# trigger-springboot-checkstyle:
+#   stage: trigger
+#   trigger:
+#     include: .gitlab/springboot/springboot-checkstyle.yml
+#   rules:
+#     - changes:
+#         - springboot/springboot-checkstyle/**/*
 
 
 
