@@ -5,55 +5,117 @@ stages:
   - test
   - build
 
-install:springboot-starter:
-  stage: install
-  script:
-    - echo "Installing dependencies"
-    - cd springboot/springboot-starter
-    - mvn -B -DskipTests verify
+.default-springboot-starter:
+  variables:
+    PROJECT_DIR: springboot/springboot-starter
   cache:
+    key: springboot-starter
     paths:
-      - springboot/springboot-starter/.m2/repository
+      - $PROJECT_DIR/.m2/repository
     policy: pull-push
   artifacts:
     paths:
-      - springboot/springboot-starter/.m2/repository
+      - $PROJECT_DIR/.m2/repository
     expire_in: 1h
   rules:
     - changes:
         - springboot/springboot-starter/**/*
 
+install:springboot-starter:
+  stage: install
+  extends: .default-springboot-starter
+  script:
+    - echo "Installing dependencies"
+    - cd $PROJECT_DIR
+    - mvn -B -DskipTests verify
+
 test:springboot-starter:
   stage: test
-  script:
-    - echo "Running unit tests"
-    - cd springboot/springboot-starter
-    - mvn -B clean test
+  extends: .default-springboot-starter
   dependencies:
     - install:springboot-starter
+  script:
+    - echo "Running unit tests"
+    - cd $PROJECT_DIR
+    - mvn -B clean test
   artifacts:
     when: always
     reports:
-      junit: springboot/springboot-starter/target/surefire-reports/*.xml
+      junit: $PROJECT_DIR/target/surefire-reports/*.xml
     paths:
-      - springboot/springboot-starter/target/surefire-reports/
-  rules:
-    - changes:
-        - springboot/springboot-starter/**/*
+      - $PROJECT_DIR/target/surefire-reports/
 
 build:springboot-starter:
   stage: build
-  script:
-    - echo "Building Spring Boot JAR"
-    - cd springboot/springboot-starter
-    - mvn -B -DskipTests package
+  extends: .default-springboot-starter
   dependencies:
     - install:springboot-starter
+  script:
+    - echo "Building Spring Boot JAR"
+    - cd $PROJECT_DIR
+    - mvn -B -DskipTests package
   artifacts:
     paths:
-      - springboot/springboot-starter/target/*.jar
-      - springboot/springboot-starter/target/*.war
+      - $PROJECT_DIR/target/*.jar
+      - $PROJECT_DIR/target/*.war
     expire_in: 1 week
-  rules:
-    - changes:
-        - springboot/springboot-starter/**/*
+
+# image: maven:3.9-eclipse-temurin-21
+
+# stages:
+#   - install
+#   - test
+#   - build
+
+# install:springboot-starter:
+#   stage: install
+#   script:
+#     - echo "Installing dependencies"
+#     - cd springboot/springboot-starter
+#     - mvn -B -DskipTests verify
+#   cache:
+#     paths:
+#       - springboot/springboot-starter/.m2/repository
+#     policy: pull-push
+#   artifacts:
+#     paths:
+#       - springboot/springboot-starter/.m2/repository
+#     expire_in: 1h
+#   rules:
+#     - changes:
+#         - springboot/springboot-starter/**/*
+
+# test:springboot-starter:
+#   stage: test
+#   script:
+#     - echo "Running unit tests"
+#     - cd springboot/springboot-starter
+#     - mvn -B clean test
+#   dependencies:
+#     - install:springboot-starter
+#   artifacts:
+#     when: always
+#     reports:
+#       junit: springboot/springboot-starter/target/surefire-reports/*.xml
+#     paths:
+#       - springboot/springboot-starter/target/surefire-reports/
+#   rules:
+#     - changes:
+#         - springboot/springboot-starter/**/*
+
+# build:springboot-starter:
+#   stage: build
+#   script:
+#     - echo "Building Spring Boot JAR"
+#     - cd springboot/springboot-starter
+#     - mvn -B -DskipTests package
+#   dependencies:
+#     - install:springboot-starter
+#   artifacts:
+#     paths:
+#       - springboot/springboot-starter/target/*.jar
+#       - springboot/springboot-starter/target/*.war
+#     expire_in: 1 week
+#   rules:
+#     - changes:
+#         - springboot/springboot-starter/**/*
