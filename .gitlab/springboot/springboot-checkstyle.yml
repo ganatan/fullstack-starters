@@ -14,7 +14,7 @@ stages:
 
 .default-springboot-checkstyle:
   variables:
-    PROJECT_DIR: springboot-checkstyle
+    PROJECT_DIR: springboot/springboot-checkstyle
   cache:
     key: springboot-checkstyle
     paths:
