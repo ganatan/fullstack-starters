@@ -1,1 +1,1 @@
-# springboot-starer 250920-0858
+# springboot-starer 250920-0907
