@@ -25,19 +25,13 @@ trigger-springboot-starter:
     - changes:
         - springboot/springboot-starter/**/*
 
+trigger-springboot-checkstyle:
+  stage: trigger
+  trigger:
+    include: .gitlab/springboot/springboot-checkstyle.yml
+  rules:
+    - changes:
+        - springboot/springboot-checkstyle/**/*
 
 
-# stages:
-#   - install
-#   - lint
-#   - test
-#   - build
 
-# include:
-#   - local: .gitlab/angular/angular-starter.yml
-#   - local: .gitlab/angular/angular-bootstrap.yml
-#   - local: .gitlab/springboot/springboot-starter.yml
-
-  # - local: .gitlab/angular/angular-eslint.yml
-  # - local: .gitlab/angular/angular-ssr.yml
-  # - local: .gitlab/springboot/springboot-checkstyle.yml
