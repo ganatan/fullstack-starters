@@ -1,7 +1,7 @@
 workflow:
   rules:
     - changes:
-        - springboot-checkstyle/**/*
+        - springboot/springboot-checkstyle/**/*
     - when: never
 
 image: maven:3.9-eclipse-temurin-21
