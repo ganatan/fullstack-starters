@@ -4,11 +4,11 @@ on:
   push:
     branches: [ master ]
     paths:
-      - "angular/bootstrap/**"
+      - "angular/angular-bootstrap/**"
   pull_request:
     branches: [ master ]
     paths:
-      - "angular/bootstrap/**"
+      - "angular/angular-bootstrap/**"
 
 jobs:
   install:
@@ -20,13 +20,13 @@ jobs:
         run: npm install -g @angular/cli
       - name: Install dependencies
         run: |
-          cd angular/bootstrap
+          cd angular/angular-bootstrap
           npm ci
       - name: Cache node_modules
         uses: actions/cache@v4
         with:
-          path: angular/bootstrap/node_modules
-          key: ${{ runner.os }}-angular-bootstrap-${{ hashFiles('angular/bootstrap/package-lock.json') }}
+          path: angular/angular-bootstrap/node_modules
+          key: ${{ runner.os }}-angular-bootstrap-${{ hashFiles('angular/angular-bootstrap/package-lock.json') }}
 
   test:
     runs-on: ubuntu-latest
@@ -44,11 +44,11 @@ jobs:
         run: echo "CHROME_BIN=$(which chromium)" >> $GITHUB_ENV
       - name: Install dependencies
         run: |
-          cd angular/bootstrap
+          cd angular/angular-bootstrap
           npm ci
       - name: Run Angular unit tests in ChromeHeadless
         run: |
-          cd angular/bootstrap
+          cd angular/angular-bootstrap
           npm run test:ci
 
   build:
@@ -61,14 +61,14 @@ jobs:
         run: npm install -g @angular/cli
       - name: Install dependencies
         run: |
-          cd angular/bootstrap
+          cd angular/angular-bootstrap
           npm ci
       - name: Build Angular app for production
         run: |
-          cd angular/bootstrap
+          cd angular/angular-bootstrap
           npm run build --configuration=production
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
           name: angular-bootstrap-dist
-          path: angular/bootstrap/dist/
+          path: angular/angular-bootstrap/dist/

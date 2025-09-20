@@ -9,51 +9,51 @@ install:springboot-starter:
   stage: install
   script:
     - echo "Installing dependencies"
-    - cd springboot/starter
+    - cd springboot/springboot-starter
     - mvn -B -DskipTests verify
   cache:
     paths:
-      - springboot/starter/.m2/repository
+      - springboot/springboot-starter/.m2/repository
     policy: pull-push
   artifacts:
     paths:
-      - springboot/starter/.m2/repository
+      - springboot/springboot-starter/.m2/repository
     expire_in: 1h
   rules:
     - changes:
-        - springboot/starter/**/*
+        - springboot/springboot-starter/**/*
 
 test:springboot-starter:
   stage: test
   script:
     - echo "Running unit tests"
-    - cd springboot/starter
+    - cd springboot/springboot-starter
     - mvn -B clean test
   dependencies:
     - install:springboot-starter
   artifacts:
     when: always
     reports:
-      junit: springboot/starter/target/surefire-reports/*.xml
+      junit: springboot/springboot-starter/target/surefire-reports/*.xml
     paths:
-      - springboot/starter/target/surefire-reports/
+      - springboot/springboot-starter/target/surefire-reports/
   rules:
     - changes:
-        - springboot/starter/**/*
+        - springboot/springboot-starter/**/*
 
 build:springboot-starter:
   stage: build
   script:
     - echo "Building Spring Boot JAR"
-    - cd springboot/starter
+    - cd springboot/springboot-starter
     - mvn -B -DskipTests package
   dependencies:
     - install:springboot-starter
   artifacts:
     paths:
-      - springboot/starter/target/*.jar
-      - springboot/starter/target/*.war
+      - springboot/springboot-starter/target/*.jar
+      - springboot/springboot-starter/target/*.war
     expire_in: 1 week
   rules:
     - changes:
-        - springboot/starter/**/*
+        - springboot/springboot-starter/**/*

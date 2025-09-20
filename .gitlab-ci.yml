@@ -5,6 +5,5 @@ include:
   # - local: .gitlab/angular/angular-eslint.yml
   - local: .gitlab/angular/angular-bootstrap.yml
   # - local: .gitlab/angular/angular-ssr.yml
-
   # - local: .gitlab/springboot/springboot-starter.yml
   # - local: .gitlab/springboot/springboot-checkstyle.yml
