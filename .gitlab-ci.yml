@@ -5,6 +5,7 @@ workflow:
         - angular/angular-bootstrap/**/*
         - springboot/springboot-starter/**/*
         - springboot/springboot-checkstyle/**/*
+        - springboot/springboot-kafka/**/*
     - when: never
 
 stages:
@@ -41,4 +42,12 @@ trigger-springboot-checkstyle:
   rules:
     - changes:
         - springboot/springboot-checkstyle/**/*
+
+trigger-springboot-kafka:
+  stage: trigger
+  trigger:
+    include: .gitlab/springboot/springboot-kafka.yml
+  rules:
+    - changes:
+        - springboot/springboot-kafka/**/*
 
