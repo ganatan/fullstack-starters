@@ -6,6 +6,7 @@ workflow:
         - springboot/springboot-starter/**/*
         - springboot/springboot-checkstyle/**/*
         - springboot/springboot-kafka/**/*
+        - springboot/springboot-rabbitmq/**/*
     - when: never
 
 stages:
@@ -50,4 +51,12 @@ trigger-springboot-kafka:
   rules:
     - changes:
         - springboot/springboot-kafka/**/*
+
+trigger-springboot-rabbitmq:
+  stage: trigger
+  trigger:
+    include: .gitlab/springboot/springboot-rabbitmq.yml
+  rules:
+    - changes:
+        - springboot/springboot-rabbitmq/**/*
 
