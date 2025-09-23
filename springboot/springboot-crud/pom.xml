@@ -27,14 +27,16 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>21</java.version>
+	    <java.version>21</java.version>
+	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	    <checkstyle.version>11.0.1</checkstyle.version>
+	    <maven.checkstyle.plugin.version>3.6.0</maven.checkstyle.plugin.version>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -48,6 +50,44 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+	          <groupId>org.apache.maven.plugins</groupId>
+	          <artifactId>maven-checkstyle-plugin</artifactId>
+	          <version>${maven.checkstyle.plugin.version}</version>
+	          <configuration>
+	              <configLocation>checkstyle.xml</configLocation>
+	              <consoleOutput>true</consoleOutput>
+	              <failsOnError>false</failsOnError>
+	          </configuration>
+	          <dependencies>
+	              <dependency>
+	                  <groupId>com.puppycrawl.tools</groupId>
+	                  <artifactId>checkstyle</artifactId>
+	                  <version>${checkstyle.version}</version>
+	              </dependency>
+	          </dependencies>
+	      </plugin>
+			<plugin>
+			  <groupId>org.jacoco</groupId>
+			  <artifactId>jacoco-maven-plugin</artifactId>
+			  <version>0.8.12</version>
+			  <executions>
+			    <execution>
+			      <goals>
+			        <goal>prepare-agent</goal>
+			      </goals>
+			    </execution>
+			    <execution>
+			      <id>report</id>
+			      <phase>verify</phase>
+			      <goals>
+			        <goal>report</goal>
+			      </goals>
+			    </execution>
+			  </executions>
+			</plugin>
+	      
+	      
 		</plugins>
 	</build>
 
