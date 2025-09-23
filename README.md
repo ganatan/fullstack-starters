@@ -17,7 +17,7 @@ These starters provide a common foundation to learn, compare, and quickly set up
 
 ---
 
-## 🔗 Direct Links
+## 🔗 Projects List
 
 ### Angular
 - [angular-starter](angular/angular-starter/README.md) – Minimal Angular starter  
@@ -43,22 +43,10 @@ These starters provide a common foundation to learn, compare, and quickly set up
 
 ## 🔧 Continuous Integration (CI)
 
-| Projet            | Badge CI |
+| Project           | Badge CI |
 |-------------------|----------|
 | Angular Starter   | [![Angular Starter CI](https://github.com/ganatan/starters/actions/workflows/angular-starter.yml/badge.svg?branch=master)](https://github.com/ganatan/starters/actions/workflows/angular-starter.yml) |
 | Angular Bootstrap | [![Angular Bootstrap CI](https://github.com/ganatan/starters/actions/workflows/angular-bootstrap.yml/badge.svg?branch=master)](https://github.com/ganatan/starters/actions/workflows/angular-bootstrap.yml) |
-
----
-
-## 🚀 Purpose
-
-The purpose of this repository is to provide a **common base** for different kinds of projects:
-
-- **Angular**: modern frontend with SSR, Bootstrap, and linting.
-- **JavaScript (Node.js)**: simple backend in JavaScript.
-- **Spring Boot (Java)**: production-ready backends with integrations (Oracle, Kafka, RabbitMQ, etc.).
-
-Each project is built to be **quick to clone and run**, with ready-to-use **GitLab CI/CD examples**.
 
 ---
 
