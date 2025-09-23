@@ -17,9 +17,7 @@ These starters provide a common foundation to learn, compare, and quickly set up
 
 ---
 
-
 ---
-
 ## 🔗 Direct Links
 
 ### Angular

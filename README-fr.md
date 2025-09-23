@@ -15,39 +15,30 @@ Chaque starter est un projet minimal **fonctionnel et prêt à l’emploi**, ave
 
 ---
 
-## 📂 Structure du dépôt
+---
+## 🔗 Direct Links
 
-```
-STARTERS/
-├── .gitlab/                        # GitLab CI/CD pipelines
-│   ├── angular/                    # CI templates for Angular
-│   └── springboot/                 # CI templates for Spring Boot
-│
-├── angular/                        # Angular starters
-│   ├── angular-bootstrap/          # Angular + Bootstrap
-│   ├── angular-eslint/             # Angular + ESLint (linting)
-│   ├── angular-ssr/                # Angular Universal (Server Side Rendering)
-│   └── angular-starter/            # Minimal Angular starter
-│
-├── javascript/                     # Node.js / JavaScript starter
-│   └── javascript-starter/         # Minimal Node.js starter
-│
-├── springboot/                     # Spring Boot starters
-│   ├── springboot-checkstyle/      # Starter with Checkstyle
-│   ├── springboot-coverage/        # Starter with tests + JaCoCo/Coverage
-│   ├── springboot-crud/            # Simple CRUD
-│   ├── springboot-crud-jpa/        # CRUD with JPA
-│   ├── springboot-crud-layered/    # Layered architecture CRUD
-│   ├── springboot-kafka/           # Kafka integration
-│   ├── springboot-logging/         # Advanced logging starter
-│   ├── springboot-oracle/          # Oracle starter
-│   ├── springboot-oracle-jdbc/     # Oracle with JDBC starter
-│   ├── springboot-rabbitmq/        # RabbitMQ integration
-│   └── springboot-starter/         # Minimal Spring Boot starter
-│
-├── .gitignore                      # Git ignored files
-├── .gitlab-ci.yml                  # Main entry for CI/CD pipelines
-└── README.md                       # Main documentation
+### Angular
+- [angular-bootstrap](angular/angular-bootstrap/README.md) – Angular + Bootstrap  
+- [angular-eslint](angular/angular-eslint/README.md) – Angular + ESLint  
+- [angular-ssr](angular/angular-ssr/README.md) – Angular Universal (SSR)  
+- [angular-starter](angular/angular-starter/README.md) – Minimal Angular starter  
+
+### JavaScript
+- [javascript-starter](javascript/javascript-starter/README.md) – Minimal Node.js starter  
+
+### Spring Boot
+- [springboot-checkstyle](springboot/springboot-checkstyle/README.md) – Starter with Checkstyle  
+- [springboot-coverage](springboot/springboot-coverage/README.md) – Starter with JaCoCo coverage  
+- [springboot-crud](springboot/springboot-crud/README.md) – Simple CRUD  
+- [springboot-crud-jpa](springboot/springboot-crud-jpa/README.md) – CRUD with JPA  
+- [springboot-crud-layered](springboot/springboot-crud-layered/README.md) – Layered architecture CRUD  
+- [springboot-kafka](springboot/springboot-kafka/README.md) – Kafka integration  
+- [springboot-logging](springboot/springboot-logging/README.md) – Advanced logging starter  
+- [springboot-oracle](springboot/springboot-oracle/README.md) – Oracle starter  
+- [springboot-oracle-jdbc](springboot/springboot-oracle-jdbc/README.md) – Oracle with JDBC starter  
+- [springboot-rabbitmq](springboot/springboot-rabbitmq/README.md) – RabbitMQ integration  
+- [springboot-starter](springboot/springboot-starter/README.md) – Minimal Spring Boot starter  
 ```
 
 ---
