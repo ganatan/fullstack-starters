@@ -26,7 +26,10 @@ These starters provide a common foundation to learn, compare, and quickly set up
 - [angular-ssr](angular/angular-ssr/README.md) – Angular Universal (SSR)  
 
 ### JavaScript
-- [javascript-starter](javascript/javascript-starter/README.md) – Minimal Node.js starter  
+- [javascript-starter](javascript/javascript-starter/README.md) – Minimal JavaScript Node.js starter  
+
+### TypeScript
+- [typescript-starter](javascript/typescript-starter/README.md) – Minimal TypeScript Node.js starter  
 
 ### Spring Boot
 - [springboot-starter](springboot/springboot-starter/README.md) – Minimal Spring Boot starter  
