@@ -2,11 +2,13 @@ name: angular-bootstrap
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
     paths:
       - "angular/angular-bootstrap/**"
   pull_request:
-    branches: [ master ]
+    branches:
+      - master
     paths:
       - "angular/angular-bootstrap/**"
 

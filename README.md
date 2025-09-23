@@ -79,7 +79,14 @@ npm run start
 ### JavaScript (Node.js)
 
 ```bash
-cd javascript
+cd javascript/javascript-starter
+npm install
+npm run start
+```
+### TypeScript (Node.js)
+
+```bash
+cd typescript/typescript-starter
 npm install
 npm run start
 ```
@@ -87,6 +94,6 @@ npm run start
 ### Spring Boot
 
 ```bash
-cd springboot/starter
+cd springboot/springboot-starter
 mvn spring-boot:run
 ```
