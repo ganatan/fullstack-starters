@@ -18,35 +18,36 @@ Chaque starter est un projet minimal **fonctionnel et prêt à l’emploi**, ave
 ## 📂 Structure du dépôt
 
 ```
-002-STARTERS/
-├── .gitlab/                # Pipelines GitLab CI/CD spécifiques
-│   ├── angular/            # Templates CI pour Angular
-│   └── springboot/         # Templates CI pour Spring Boot
+STARTERS/
+├── .gitlab/                        # GitLab CI/CD pipelines
+│   ├── angular/                    # CI templates for Angular
+│   └── springboot/                 # CI templates for Spring Boot
 │
-├── angular/                # Starters Angular
-│   ├── bootstrap/          # Angular + Bootstrap
-│   ├── eslint/             # Angular + ESLint (linting)
-│   ├── ssr/                # Angular Universal (Server Side Rendering)
-│   └── starter/            # Starter Angular minimal
+├── angular/                        # Angular starters
+│   ├── angular-bootstrap/          # Angular + Bootstrap
+│   ├── angular-eslint/             # Angular + ESLint (linting)
+│   ├── angular-ssr/                # Angular Universal (Server Side Rendering)
+│   └── angular-starter/            # Minimal Angular starter
 │
-├── javascript/             # Starter Node.js / JavaScript
+├── javascript/                     # Node.js / JavaScript starter
+│   └── javascript-starter/         # Minimal Node.js starter
 │
-├── springboot/             # Starters Spring Boot
-│   ├── checkstyle/         # Starter avec Checkstyle
-│   ├── coverage/           # Starter avec tests + JaCoCo/Coverage
-│   ├── crud/               # CRUD simple
-│   ├── crud-jpa/           # CRUD avec JPA
-│   ├── crud-layered/       # CRUD architecture en couches
-│   ├── kafka/              # Intégration Kafka
-│   ├── logging/            # Starter logging avancé
-│   ├── oracle/             # Starter Spring Boot + Oracle
-│   ├── oracle-jdbc/        # Starter Oracle via JDBC
-│   ├── rabbitmq/           # Intégration RabbitMQ
-│   └── starter/            # Starter Spring Boot minimal
+├── springboot/                     # Spring Boot starters
+│   ├── springboot-checkstyle/      # Starter with Checkstyle
+│   ├── springboot-coverage/        # Starter with tests + JaCoCo/Coverage
+│   ├── springboot-crud/            # Simple CRUD
+│   ├── springboot-crud-jpa/        # CRUD with JPA
+│   ├── springboot-crud-layered/    # Layered architecture CRUD
+│   ├── springboot-kafka/           # Kafka integration
+│   ├── springboot-logging/         # Advanced logging starter
+│   ├── springboot-oracle/          # Oracle starter
+│   ├── springboot-oracle-jdbc/     # Oracle with JDBC starter
+│   ├── springboot-rabbitmq/        # RabbitMQ integration
+│   └── springboot-starter/         # Minimal Spring Boot starter
 │
-├── .gitignore              # Fichiers ignorés par Git
-├── .gitlab-ci.yml          # Entrée principale pour les pipelines CI/CD
-└── README.md               # Documentation principale
+├── .gitignore                      # Git ignored files
+├── .gitlab-ci.yml                  # Main entry for CI/CD pipelines
+└── README.md                       # Main documentation
 ```
 
 ---
