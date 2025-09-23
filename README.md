@@ -71,7 +71,7 @@ This repository integrates two complementary pipeline systems:
 ### Angular
 
 ```bash
-cd angular/starter
+cd angular/angular-starter
 npm install
 npm run start
 ```

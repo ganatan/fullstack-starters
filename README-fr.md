@@ -1,47 +1,48 @@
 # Starters
 
-Ce dépôt regroupe plusieurs **starters fullstack** couvrant différentes technologies :  
+Ce dépôt contient plusieurs **starters fullstack** couvrant différentes technologies :  
 - **Backend Node.js** (JavaScript et TypeScript)  
 - **Frontend Angular**  
 - **Backend Java Spring Boot**  
 
-Chaque starter est un projet minimal **fonctionnel et prêt à l’emploi**, avec :  
+Chaque starter est un projet minimal, **fonctionnel et prêt à l’emploi**, comprenant :  
 - Un pipeline **CI/CD** simple (`install`, `lint`, `test`, `build`, `docker & deploy`)  
 - Des scripts de déploiement **Docker** et **OpenShift**  
 
----
-
-**👉 Looking for the English version?** : [![English](./ui/version-en.png)](./README.md)
+Ces starters fournissent une base commune pour apprendre, comparer et mettre rapidement en place des applications fullstack modernes.
 
 ---
 
+**👉 English version available here** : [![English](./ui/version-en.png)](./README.md)
+
 ---
-## 🔗 Liens Directs
+
+## 🔗 Liste des projets
 
 ### Angular
-- [angular-starter](angular/angular-starter/README.md) – Minimal Angular starter  
+- [angular-starter](angular/angular-starter/README.md) – Starter Angular minimal  
 - [angular-eslint](angular/angular-eslint/README.md) – Angular + ESLint  
 - [angular-bootstrap](angular/angular-bootstrap/README.md) – Angular + Bootstrap  
 - [angular-ssr](angular/angular-ssr/README.md) – Angular Universal (SSR)  
 
 ### JavaScript
-- [javascript-starter](javascript/javascript-starter/README.md) – Minimal Node.js starter  
+- [javascript-starter](javascript/javascript-starter/README.md) – Starter Node.js minimal en JavaScript  
+
+### TypeScript
+- [typescript-starter](javascript/typescript-starter/README.md) – Starter Node.js minimal en TypeScript  
 
 ### Spring Boot
-- [springboot-starter](springboot/springboot-starter/README.md) – Minimal Spring Boot starter  
-- [springboot-checkstyle](springboot/springboot-checkstyle/README.md) – Starter with Checkstyle  
-- [springboot-coverage](springboot/springboot-coverage/README.md) – Starter with JaCoCo coverage  
-- [springboot-crud](springboot/springboot-crud/README.md) – Simple CRUD  
-- [springboot-crud-jpa](springboot/springboot-crud-jpa/README.md) – CRUD with JPA  
-- [springboot-crud-layered](springboot/springboot-crud-layered/README.md) – Layered architecture CRUD  
-- [springboot-kafka](springboot/springboot-kafka/README.md) – Kafka integration  
-- [springboot-logging](springboot/springboot-logging/README.md) – Advanced logging starter  
-- [springboot-oracle](springboot/springboot-oracle/README.md) – Oracle starter  
-- [springboot-oracle-jdbc](springboot/springboot-oracle-jdbc/README.md) – Oracle with JDBC starter  
-- [springboot-rabbitmq](springboot/springboot-rabbitmq/README.md) – RabbitMQ integration  
-```
-
----
+- [springboot-starter](springboot/springboot-starter/README.md) – Starter Spring Boot minimal  
+- [springboot-checkstyle](springboot/springboot-checkstyle/README.md) – Starter avec Checkstyle  
+- [springboot-coverage](springboot/springboot-coverage/README.md) – Starter avec JaCoCo coverage  
+- [springboot-crud](springboot/springboot-crud/README.md) – CRUD simple  
+- [springboot-crud-jpa](springboot/springboot-crud-jpa/README.md) – CRUD avec JPA  
+- [springboot-crud-layered](springboot/springboot-crud-layered/README.md) – CRUD avec architecture en couches  
+- [springboot-kafka](springboot/springboot-kafka/README.md) – Intégration Kafka  
+- [springboot-logging](springboot/springboot-logging/README.md) – Starter avec logging avancé  
+- [springboot-oracle](springboot/springboot-oracle/README.md) – Starter Oracle  
+- [springboot-oracle-jdbc](springboot/springboot-oracle-jdbc/README.md) – Starter Oracle avec JDBC  
+- [springboot-rabbitmq](springboot/springboot-rabbitmq/README.md) – Intégration RabbitMQ  
 
 ## 🔧 Intégration Continue (CI)
 
@@ -52,28 +53,16 @@ Chaque starter est un projet minimal **fonctionnel et prêt à l’emploi**, ave
 
 ---
 
-## 🚀 Objectif
-
-L’objectif de ce dépôt est de fournir une **base commune** pour différents types de projets :
-
-- **Angular** : frontend moderne avec SSR, Bootstrap, linting.
-- **JavaScript (Node.js)** : backend simple en JavaScript.
-- **Spring Boot (Java)** : backends prêts à l’emploi avec différentes intégrations (Oracle, Kafka, RabbitMQ, etc.).
-
-Chaque projet est pensé pour être **rapide à cloner et exécuter**, avec des exemples de **CI/CD GitLab** intégrés.
-
----
-
 ## ⚙️ CI/CD
 
-Ce dépôt intègre deux systèmes de pipelines complémentaires :
+Ce dépôt intègre deux systèmes de pipeline complémentaires :
 
 ### 🔹 GitLab CI/CD
 - Les templates GitLab sont stockés dans `.gitlab/angular` et `.gitlab/springboot`.  
-- Le fichier racine `.gitlab-ci.yml` inclut les templates adaptés.  
+- Le fichier racine `.gitlab-ci.yml` inclut les templates correspondants.  
 
 ### 🔹 GitHub Actions
-- Les workflows sont stockés dans `.github/workflows/` (organisation par projet : `angular-starter.yml`, `angular-bootstrap.yml`, etc.).  
+- Les workflows sont stockés dans `.github/workflows/` (organisés par projet : `angular-starter.yml`, `angular-bootstrap.yml`, etc.).  
 
 ---
 
@@ -82,7 +71,7 @@ Ce dépôt intègre deux systèmes de pipelines complémentaires :
 ### Angular
 
 ```bash
-cd angular/starter
+cd angular/angular-starter
 npm install
 npm run start
 ```
@@ -90,7 +79,15 @@ npm run start
 ### JavaScript (Node.js)
 
 ```bash
-cd javascript
+cd javascript/javascript-starter
+npm install
+npm run start
+```
+
+### TypeScript (Node.js)
+
+```bash
+cd typescript/typescript-starter
 npm install
 npm run start
 ```
@@ -98,9 +95,6 @@ npm run start
 ### Spring Boot
 
 ```bash
-cd springboot/starter
+cd springboot/springboot-starter
 mvn spring-boot:run
 ```
-
----
-
