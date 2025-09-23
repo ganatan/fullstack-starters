@@ -1,7 +1,13 @@
 # Starters
 
-Ce dépôt regroupe plusieurs **starters** (projets de démarrage) pour différents environnements et technologies.  
-Chaque starter est conçu comme un projet minimal fonctionnel, prêt à être utilisé, testé et enrichi.
+Ce dépôt regroupe plusieurs **starters fullstack** couvrant différentes technologies :  
+- **Backend Node.js** (JavaScript et TypeScript)  
+- **Frontend Angular**  
+- **Backend Java Spring Boot**  
+
+Chaque starter est un projet minimal **fonctionnel et prêt à l’emploi**, avec :  
+- Un pipeline **CI/CD** simple (`install`, `lint`, `test`, `build`, `docker & deploy`)  
+- Des scripts de déploiement **Docker** et **OpenShift**  
 
 ---
 

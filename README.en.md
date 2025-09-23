@@ -1,7 +1,15 @@
 # Starters
 
-This repository contains several **starters** (bootstrap projects) for different environments and technologies.  
-Each starter is designed as a minimal functional project, ready to be used, tested, and extended.
+This repository contains several **fullstack starters** covering different technologies:  
+- **Backend Node.js** (JavaScript and TypeScript)  
+- **Frontend Angular**  
+- **Backend Java Spring Boot**  
+
+Each starter is a minimal project, **fully functional and ready to use**, including:  
+- A simple **CI/CD** pipeline (`install`, `lint`, `test`, `build`, `docker & deploy`)  
+- **Docker** and **OpenShift** deployment scripts  
+
+These starters provide a common foundation to learn, compare, and quickly set up modern fullstack applications.
 
 ---
 
