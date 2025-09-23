@@ -17,7 +17,6 @@ These starters provide a common foundation to learn, compare, and quickly set up
 
 ---
 
----
 ## 🔗 Direct Links
 
 ### Angular
@@ -41,11 +40,8 @@ These starters provide a common foundation to learn, compare, and quickly set up
 - [springboot-oracle](springboot/springboot-oracle/README.md) – Oracle starter  
 - [springboot-oracle-jdbc](springboot/springboot-oracle-jdbc/README.md) – Oracle with JDBC starter  
 - [springboot-rabbitmq](springboot/springboot-rabbitmq/README.md) – RabbitMQ integration  
-```
 
----
-
-## 🔧 Continuous Integration  (CI)
+## 🔧 Continuous Integration (CI)
 
 | Projet            | Badge CI |
 |-------------------|----------|
@@ -53,7 +49,6 @@ These starters provide a common foundation to learn, compare, and quickly set up
 | Angular Bootstrap | [![Angular Bootstrap CI](https://github.com/ganatan/starters/actions/workflows/angular-bootstrap.yml/badge.svg?branch=master)](https://github.com/ganatan/starters/actions/workflows/angular-bootstrap.yml) |
 
 ---
-
 
 ## 🚀 Purpose
 
@@ -104,8 +99,3 @@ npm run start
 cd springboot/starter
 mvn spring-boot:run
 ```
-
----
-
-
-
