@@ -21,15 +21,16 @@ These starters provide a common foundation to learn, compare, and quickly set up
 ## 🔗 Direct Links
 
 ### Angular
-- [angular-bootstrap](angular/angular-bootstrap/README.md) – Angular + Bootstrap  
-- [angular-eslint](angular/angular-eslint/README.md) – Angular + ESLint  
-- [angular-ssr](angular/angular-ssr/README.md) – Angular Universal (SSR)  
 - [angular-starter](angular/angular-starter/README.md) – Minimal Angular starter  
+- [angular-eslint](angular/angular-eslint/README.md) – Angular + ESLint  
+- [angular-bootstrap](angular/angular-bootstrap/README.md) – Angular + Bootstrap  
+- [angular-ssr](angular/angular-ssr/README.md) – Angular Universal (SSR)  
 
 ### JavaScript
 - [javascript-starter](javascript/javascript-starter/README.md) – Minimal Node.js starter  
 
 ### Spring Boot
+- [springboot-starter](springboot/springboot-starter/README.md) – Minimal Spring Boot starter  
 - [springboot-checkstyle](springboot/springboot-checkstyle/README.md) – Starter with Checkstyle  
 - [springboot-coverage](springboot/springboot-coverage/README.md) – Starter with JaCoCo coverage  
 - [springboot-crud](springboot/springboot-crud/README.md) – Simple CRUD  
@@ -40,7 +41,6 @@ These starters provide a common foundation to learn, compare, and quickly set up
 - [springboot-oracle](springboot/springboot-oracle/README.md) – Oracle starter  
 - [springboot-oracle-jdbc](springboot/springboot-oracle-jdbc/README.md) – Oracle with JDBC starter  
 - [springboot-rabbitmq](springboot/springboot-rabbitmq/README.md) – RabbitMQ integration  
-- [springboot-starter](springboot/springboot-starter/README.md) – Minimal Spring Boot starter  
 ```
 
 ---
