@@ -1,57 +1,59 @@
 # Starters
 
-Ce dépôt regroupe plusieurs **starters fullstack** couvrant différentes technologies :  
-- **Backend Node.js** (JavaScript et TypeScript)  
+This repository contains several **fullstack starters** covering different technologies:  
+- **Backend Node.js** (JavaScript and TypeScript)  
 - **Frontend Angular**  
 - **Backend Java Spring Boot**  
 
-Chaque starter est un projet minimal **fonctionnel et prêt à l’emploi**, avec :  
-- Un pipeline **CI/CD** simple (`install`, `lint`, `test`, `build`, `docker & deploy`)  
-- Des scripts de déploiement **Docker** et **OpenShift**  
+Each starter is a minimal project, **fully functional and ready to use**, including:  
+- A simple **CI/CD** pipeline (`install`, `lint`, `test`, `build`, `docker & deploy`)  
+- **Docker** and **OpenShift** deployment scripts  
+
+These starters provide a common foundation to learn, compare, and quickly set up modern fullstack applications.
 
 ---
 
-**👉 Looking for the English version?** : [![English](./ui/version-en.png)](./README.en.md)
+**👉 Version française disponible ici** : [![Français](./ui/version-fr.png)](./README-fr.md)
 
 ---
 
-## 📂 Structure du dépôt
+## 📂 Repository Structure
 
 ```
 002-STARTERS/
-├── .gitlab/                # Pipelines GitLab CI/CD spécifiques
-│   ├── angular/            # Templates CI pour Angular
-│   └── springboot/         # Templates CI pour Spring Boot
+├── .gitlab/                # GitLab CI/CD pipelines
+│   ├── angular/            # CI templates for Angular
+│   └── springboot/         # CI templates for Spring Boot
 │
-├── angular/                # Starters Angular
+├── angular/                # Angular starters
 │   ├── bootstrap/          # Angular + Bootstrap
 │   ├── eslint/             # Angular + ESLint (linting)
 │   ├── ssr/                # Angular Universal (Server Side Rendering)
-│   └── starter/            # Starter Angular minimal
+│   └── starter/            # Minimal Angular starter
 │
-├── javascript/             # Starter Node.js / JavaScript
+├── javascript/             # Node.js / JavaScript starter
 │
-├── springboot/             # Starters Spring Boot
-│   ├── checkstyle/         # Starter avec Checkstyle
-│   ├── coverage/           # Starter avec tests + JaCoCo/Coverage
-│   ├── crud/               # CRUD simple
-│   ├── crud-jpa/           # CRUD avec JPA
-│   ├── crud-layered/       # CRUD architecture en couches
-│   ├── kafka/              # Intégration Kafka
-│   ├── logging/            # Starter logging avancé
-│   ├── oracle/             # Starter Spring Boot + Oracle
-│   ├── oracle-jdbc/        # Starter Oracle via JDBC
-│   ├── rabbitmq/           # Intégration RabbitMQ
-│   └── starter/            # Starter Spring Boot minimal
+├── springboot/             # Spring Boot starters
+│   ├── checkstyle/         # Starter with Checkstyle
+│   ├── coverage/           # Starter with tests + JaCoCo/Coverage
+│   ├── crud/               # Simple CRUD
+│   ├── crud-jpa/           # CRUD with JPA
+│   ├── crud-layered/       # Layered architecture CRUD
+│   ├── kafka/              # Kafka integration
+│   ├── logging/            # Advanced logging starter
+│   ├── oracle/             # Spring Boot + Oracle starter
+│   ├── oracle-jdbc/        # Oracle with JDBC starter
+│   ├── rabbitmq/           # RabbitMQ integration
+│   └── starter/            # Minimal Spring Boot starter
 │
-├── .gitignore              # Fichiers ignorés par Git
-├── .gitlab-ci.yml          # Entrée principale pour les pipelines CI/CD
-└── README.md               # Documentation principale
+├── .gitignore              # Git ignored files
+├── .gitlab-ci.yml          # Main entry for CI/CD pipelines
+└── README.md               # Main documentation
 ```
 
 ---
 
-## 🔧 Intégration Continue (CI)
+## 🔧 Continuous Integration  (CI)
 
 | Projet            | Badge CI |
 |-------------------|----------|
@@ -60,32 +62,33 @@ Chaque starter est un projet minimal **fonctionnel et prêt à l’emploi**, ave
 
 ---
 
-## 🚀 Objectif
 
-L’objectif de ce dépôt est de fournir une **base commune** pour différents types de projets :
+## 🚀 Purpose
 
-- **Angular** : frontend moderne avec SSR, Bootstrap, linting.
-- **JavaScript (Node.js)** : backend simple en JavaScript.
-- **Spring Boot (Java)** : backends prêts à l’emploi avec différentes intégrations (Oracle, Kafka, RabbitMQ, etc.).
+The purpose of this repository is to provide a **common base** for different kinds of projects:
 
-Chaque projet est pensé pour être **rapide à cloner et exécuter**, avec des exemples de **CI/CD GitLab** intégrés.
+- **Angular**: modern frontend with SSR, Bootstrap, and linting.
+- **JavaScript (Node.js)**: simple backend in JavaScript.
+- **Spring Boot (Java)**: production-ready backends with integrations (Oracle, Kafka, RabbitMQ, etc.).
+
+Each project is built to be **quick to clone and run**, with ready-to-use **GitLab CI/CD examples**.
 
 ---
 
 ## ⚙️ CI/CD
 
-Ce dépôt intègre deux systèmes de pipelines complémentaires :
+This repository integrates two complementary pipeline systems:
 
 ### 🔹 GitLab CI/CD
-- Les templates GitLab sont stockés dans `.gitlab/angular` et `.gitlab/springboot`.  
-- Le fichier racine `.gitlab-ci.yml` inclut les templates adaptés.  
+- GitLab templates are stored in `.gitlab/angular` and `.gitlab/springboot`.  
+- The root `.gitlab-ci.yml` file includes the appropriate templates.  
 
 ### 🔹 GitHub Actions
-- Les workflows sont stockés dans `.github/workflows/` (organisation par projet : `angular-starter.yml`, `angular-bootstrap.yml`, etc.).  
+- Workflows are stored in `.github/workflows/` (organized by project: `angular-starter.yml`, `angular-bootstrap.yml`, etc.).  
 
 ---
 
-## ▶️ Démarrage rapide
+## ▶️ Quick Start
 
 ### Angular
 
@@ -111,4 +114,6 @@ mvn spring-boot:run
 ```
 
 ---
+
+
 
