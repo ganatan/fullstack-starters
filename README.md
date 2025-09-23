@@ -46,10 +46,11 @@ These starters provide a common foundation to learn, compare, and quickly set up
 
 ## 🔧 Continuous Integration (CI)
 
-| Project           | Badge CI |
-|-------------------|----------|
-| Angular Starter   | [![Angular Starter CI](https://github.com/ganatan/starters/actions/workflows/angular-starter.yml/badge.svg?branch=master)](https://github.com/ganatan/starters/actions/workflows/angular-starter.yml) |
-| Angular Bootstrap | [![Angular Bootstrap CI](https://github.com/ganatan/starters/actions/workflows/angular-bootstrap.yml/badge.svg?branch=master)](https://github.com/ganatan/starters/actions/workflows/angular-bootstrap.yml) |
+| Project           | GitHub CI | GitLab CI |
+|-------------------|-----------|-----------|
+| Angular Starter   | [![GitHub CI](https://github.com/ganatan/starters/actions/workflows/angular-starter.yml/badge.svg?branch=master)](https://github.com/ganatan/starters/actions/workflows/angular-starter.yml) | [![GitLab CI](https://gitlab.com/ganatan/starters/badges/master/pipeline.svg?job=build:angular-starter)](https://gitlab.com/ganatan/starters/-/jobs?scope=success&job=build:angular-starter) |
+| Angular Bootstrap | [![GitHub CI](https://github.com/ganatan/starters/actions/workflows/angular-bootstrap.yml/badge.svg?branch=master)](https://github.com/ganatan/starters/actions/workflows/angular-bootstrap.yml) | [![GitLab CI](https://gitlab.com/ganatan/starters/badges/master/pipeline.svg?job=build:angular-bootstrap)](https://gitlab.com/ganatan/starters/-/jobs?scope=success&job=build:angular-bootstrap) |
+| Spring Boot Starter | — | [![GitLab CI](https://gitlab.com/ganatan/starters/badges/master/pipeline.svg?job=build:springboot-starter)](https://gitlab.com/ganatan/starters/-/jobs?scope=success&job=build:springboot-starter) |
 
 ---
 
