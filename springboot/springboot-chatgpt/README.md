@@ -1,4 +1,4 @@
-# springboot-api-client
+# springboot-chatgpt
 
 Spring Boot application packaged as a **JAR**, with **Checkstyle**, **unit tests**, **code coverage**, and **Maven build**.
 
@@ -55,7 +55,7 @@ mvn clean install
 Generates the artifact:
 
 ```
-target/springboot-api-client-1.0.0.jar
+target/springboot-chatgpt-1.0.0.jar
 ```
 
 ---
@@ -71,7 +71,7 @@ mvn spring-boot:run
 Or directly with Java:
 
 ```bash
-java -jar target/springboot-api-client-1.0.0.jar
+java -jar target/springboot-chatgpt-1.0.0.jar
 ```
 
 Access at:

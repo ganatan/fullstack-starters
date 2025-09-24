@@ -1,7 +1,7 @@
 workflow:
   rules:
     - changes:
-        - springboot/springboot-api-client/**/*
+        - springboot/springboot-chatgpt/**/*
     - when: never
 
 image: maven:3.9-eclipse-temurin-21
@@ -12,11 +12,11 @@ stages:
   - test
   - build
 
-.default-springboot-api-client:
+.default-springboot-chatgpt:
   variables:
-    PROJECT_DIR: springboot/springboot-api-client
+    PROJECT_DIR: springboot/springboot-chatgpt
   cache:
-    key: springboot-api-client
+    key: springboot-chatgpt
     paths:
       - $PROJECT_DIR/.m2/repository
     policy: pull-push
@@ -25,29 +25,29 @@ stages:
       - $PROJECT_DIR/.m2/repository
     expire_in: 1h
 
-install:springboot-api-client:
+install:springboot-chatgpt:
   stage: install
-  extends: .default-springboot-api-client
+  extends: .default-springboot-chatgpt
   script:
     - echo "Installing dependencies"
     - cd $PROJECT_DIR
     - mvn -B -DskipTests verify
 
-lint:springboot-api-client:
+lint:springboot-chatgpt:
   stage: lint
-  extends: .default-springboot-api-client
+  extends: .default-springboot-chatgpt
   dependencies:
-    - install:springboot-api-client
+    - install:springboot-chatgpt
   script:
-    - echo "Running api-client"
+    - echo "Running chatgpt"
     - cd $PROJECT_DIR
     - mvn -B checkstyle:check
 
-test:springboot-api-client:
+test:springboot-chatgpt:
   stage: test
-  extends: .default-springboot-api-client
+  extends: .default-springboot-chatgpt
   dependencies:
-    - install:springboot-api-client
+    - install:springboot-chatgpt
   script:
     - echo "Running unit tests"
     - cd $PROJECT_DIR
@@ -59,11 +59,11 @@ test:springboot-api-client:
     paths:
       - $PROJECT_DIR/target/surefire-reports/
 
-build:springboot-api-client:
+build:springboot-chatgpt:
   stage: build
-  extends: .default-springboot-api-client
+  extends: .default-springboot-chatgpt
   dependencies:
-    - install:springboot-api-client
+    - install:springboot-chatgpt
   script:
     - echo "Building Spring Boot JAR"
     - cd $PROJECT_DIR
