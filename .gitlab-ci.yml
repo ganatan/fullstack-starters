@@ -5,6 +5,7 @@ workflow:
         - angular/angular-bootstrap/**/*
         - springboot/springboot-starter/**/*
         - springboot/springboot-checkstyle/**/*
+        - springboot/springboot-api-client/**/*
         - springboot/springboot-kafka/**/*
         - springboot/springboot-rabbitmq/**/*
         - springboot/springboot-crud/**/*
@@ -44,6 +45,14 @@ trigger-springboot-checkstyle:
   rules:
     - changes:
         - springboot/springboot-checkstyle/**/*
+
+trigger-springboot-api-client:
+  stage: trigger
+  trigger:
+    include: .gitlab/springboot/springboot-api-client.yml
+  rules:
+    - changes:
+        - springboot/springboot-api-client/**/*
 
 trigger-springboot-kafka:
   stage: trigger

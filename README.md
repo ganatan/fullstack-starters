@@ -34,6 +34,7 @@ These starters provide a common foundation to learn, compare, and quickly set up
 ### Spring Boot
 - [springboot-starter](springboot/springboot-starter/README.md) – Minimal Spring Boot starter  
 - [springboot-checkstyle](springboot/springboot-checkstyle/README.md) – Starter with Checkstyle  
+- [springboot-api-client](springboot/springboot-api-client/README.md) – Starter with api-client
 - [springboot-coverage](springboot/springboot-coverage/README.md) – Starter with JaCoCo coverage  
 - [springboot-crud](springboot/springboot-crud/README.md) – Simple CRUD  
 - [springboot-crud-jpa](springboot/springboot-crud-jpa/README.md) – CRUD with JPA  
