@@ -41,7 +41,7 @@ lint:springboot-api-client:
   script:
     - echo "Running api-client"
     - cd $PROJECT_DIR
-    - mvn -B api-client:check
+    - mvn -B checkstyle:check
 
 test:springboot-api-client:
   stage: test
