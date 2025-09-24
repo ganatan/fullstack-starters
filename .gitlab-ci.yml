@@ -6,6 +6,7 @@ workflow:
         - springboot/springboot-starter/**/*
         - springboot/springboot-checkstyle/**/*
         - springboot/springboot-api-client/**/*
+        - springboot/springboot-chatgpt/**/*
         - springboot/springboot-kafka/**/*
         - springboot/springboot-rabbitmq/**/*
         - springboot/springboot-crud/**/*
@@ -53,6 +54,14 @@ trigger-springboot-api-client:
   rules:
     - changes:
         - springboot/springboot-api-client/**/*
+
+trigger-springboot-chatgpt:
+  stage: trigger
+  trigger:
+    include: .gitlab/springboot/springboot-chatgpt.yml
+  rules:
+    - changes:
+        - springboot/springboot-chatgpt/**/*
 
 trigger-springboot-kafka:
   stage: trigger

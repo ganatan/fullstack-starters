@@ -87,16 +87,15 @@ http://localhost:8080
 
 The application exposes two REST endpoints:
 
-- `GET /persons` → returns a **local in-memory list** of persons (CRUD demo).  
-- `GET /persons/external` → fetches persons from the **external API** [JSONPlaceholder Users](https://jsonplaceholder.typicode.com/users).  
+- `GET /chatgpt?prompt=...` → sends a **prompt** to OpenAI GPT and returns the generated response.  
+- `POST /chatgpt` → sends a **prompt** in the request body and returns the generated response.  
 
 ### Example
 
 ```bash
-curl http://localhost:8080/persons
-curl http://localhost:8080/persons/external
+curl "http://localhost:3000/chatgpt?prompt=Bonjour"
+curl -X POST http://localhost:3000/chatgpt -H "Content-Type: application/json" -d '"Que veut dire API""'
 ```
-
 ---
 
 
