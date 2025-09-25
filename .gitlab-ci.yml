@@ -5,6 +5,7 @@ workflow:
         - angular/angular-bootstrap/**/*
         - springboot/springboot-starter/**/*
         - springboot/springboot-checkstyle/**/*
+        - springboot/springboot-coverage/**/*
         - springboot/springboot-api-client/**/*
         - springboot/springboot-chatgpt/**/*
         - springboot/springboot-kafka/**/*
@@ -46,6 +47,14 @@ trigger-springboot-checkstyle:
   rules:
     - changes:
         - springboot/springboot-checkstyle/**/*
+
+trigger-springboot-coverage:
+  stage: trigger
+  trigger:
+    include: .gitlab/springboot/springboot-coverage.yml
+  rules:
+    - changes:
+        - springboot/springboot-coverage/**/*
 
 trigger-springboot-api-client:
   stage: trigger
