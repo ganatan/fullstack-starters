@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.5.5</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 	<groupId>com.ganatan</groupId>
 	<artifactId>springboot-chatgpt</artifactId>
@@ -47,7 +47,6 @@
 	        <artifactId>spring-boot-starter-webflux</artifactId>
 	    </dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -90,9 +89,6 @@
 			    </execution>
 			  </executions>
 			</plugin>
-	      
-	      
 		</plugins>
 	</build>
-
 </project>

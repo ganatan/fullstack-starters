@@ -3,7 +3,7 @@ package com.ganatan.starter.controllers;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "starter_person")
+@Table(name = "rag_person")
 public class Person {
 
     @Id
