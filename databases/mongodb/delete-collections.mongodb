@@ -1,0 +1,7 @@
+use("ganatan")
+db.media_person.drop()
+db.media.drop()
+db.persons.drop()
+db.cities.drop()
+db.countries.drop()
+db.continents.drop()

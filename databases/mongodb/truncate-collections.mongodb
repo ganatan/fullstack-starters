@@ -1,0 +1,7 @@
+use("ganatan")
+db.continents.deleteMany({})
+db.countries.deleteMany({})
+db.cities.deleteMany({})
+db.persons.deleteMany({})
+db.media.deleteMany({})
+db.media_person.deleteMany({})

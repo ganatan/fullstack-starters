@@ -1,0 +1,23 @@
+use("ganatan")
+
+db.continents.createIndex({ code: 1 }, { name: "uk_continent__code", unique: true })
+
+db.countries.createIndex({ iso_alpha2: 1 }, { name: "uk_country__iso_alpha2", unique: true })
+db.countries.createIndex({ iso_alpha3: 1 }, { name: "uk_country__iso_alpha3", unique: true })
+db.countries.createIndex({ iso_numeric: 1 }, { name: "uk_country__iso_numeric", unique: true })
+db.countries.createIndex({ continent_id: 1 }, { name: "fk_country__continent_id" })
+
+db.cities.createIndex({ country_id: 1 }, { name: "idx_city__country_id" })
+
+db.persons.createIndex({ name: 1 }, { name: "idx_person__name" })
+db.persons.createIndex({ birth_city_id: 1 }, { name: "fk_person__birth_city_id" })
+db.persons.createIndex({ death_city_id: 1 }, { name: "fk_person__death_city_id" })
+
+db.media.createIndex({ release_date: 1 }, { name: "idx_media__release_date" })
+db.media.createIndex({ name: 1 }, { name: "idx_media__name" })
+db.media.createIndex({ worldwide: -1 }, { name: "idx_media__worldwide" })
+db.media.createIndex({ budget: -1 }, { name: "idx_media__budget" })
+
+db.media_person.createIndex({ media_id: 1, person_id: 1 }, { name: "pk_media_person", unique: true })
+db.media_person.createIndex({ person_id: 1 }, { name: "idx_media_person__person_id" })
+db.media_person.createIndex({ media_id: 1 }, { name: "idx_media_person__media_id" })

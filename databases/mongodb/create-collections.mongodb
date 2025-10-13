@@ -1,0 +1,102 @@
+use("ganatan")
+
+db.createCollection("continents", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["code", "name"],
+      properties: {
+        code: { bsonType: "string" },
+        name: { bsonType: "string" },
+        wikipedia_link: { bsonType: "string" },
+        area: { bsonType: ["int","long","double","decimal"] },
+        population: { bsonType: ["int","long","double","decimal"] },
+        countries_number: { bsonType: ["int","long"] }
+      }
+    }
+  }
+})
+
+db.createCollection("countries", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["name","iso_numeric","iso_alpha2","iso_alpha3","continent_id"],
+      properties: {
+        name: { bsonType: "string" },
+        wikipedia_link: { bsonType: "string" },
+        continent_id: { bsonType: "objectId" },
+        iso_numeric: { bsonType: "string" },
+        iso_alpha2: { bsonType: "string" },
+        iso_alpha3: { bsonType: "string" },
+        flag: { bsonType: "string" }
+      }
+    }
+  }
+})
+
+db.createCollection("cities", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["name","wikipedia_link","country_id"],
+      properties: {
+        name: { bsonType: "string" },
+        wikipedia_link: { bsonType: "string" },
+        country_id: { bsonType: "objectId" },
+        capital: { bsonType: "bool" }
+      }
+    }
+  }
+})
+
+db.createCollection("persons", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["name","wikipedia_link"],
+      properties: {
+        name: { bsonType: "string" },
+        wikipedia_link: { bsonType: "string" },
+        birth_date: { bsonType: "string", pattern: "^\\d{4}-\\d{2}-\\d{2}$" },
+        birth_city_id: { bsonType: "objectId" },
+        death_date: { bsonType: "string", pattern: "^\\d{4}-\\d{2}-\\d{2}$" },
+        death_city_id: { bsonType: "objectId" },
+        image: { bsonType: "string" }
+      }
+    }
+  }
+})
+
+db.createCollection("media", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["name","name_original","release_date"],
+      properties: {
+        name: { bsonType: "string" },
+        name_original: { bsonType: "string" },
+        wikipedia_link: { bsonType: "string" },
+        release_date: { bsonType: "string", pattern: "^\\d{4}-\\d{2}-\\d{2}$" },
+        domestic: { bsonType: ["int","long","double","decimal"] },
+        international: { bsonType: ["int","long","double","decimal"] },
+        worldwide: { bsonType: ["int","long","double","decimal"] },
+        budget: { bsonType: ["int","long","double","decimal"] },
+        spectators_france: { bsonType: ["int","long"] }
+      }
+    }
+  }
+})
+
+db.createCollection("media_person", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["media_id","person_id"],
+      properties: {
+        media_id: { bsonType: "objectId" },
+        person_id: { bsonType: "objectId" }
+      }
+    }
+  }
+})

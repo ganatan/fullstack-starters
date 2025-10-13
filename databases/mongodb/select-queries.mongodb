@@ -1,0 +1,108 @@
+use("ganatan")
+
+db.continents.aggregate([
+  { $project: {
+      _id: 0,
+      code: 1,
+      name: 1,
+      wikipediaLink: "$wikipedia_link",
+      area: 1,
+      population: 1,
+      countriesNumber: "$countries_number"
+  }}
+])
+
+db.continents.aggregate([
+  { $lookup: { from: "countries", localField: "_id", foreignField: "continent_id", as: "country" } },
+  { $unwind: "$country" },
+  { $project: {
+      id: "$_id",
+      name: 1,
+      wikipediaLink: "$wikipedia_link",
+      countryId: "$country._id",
+      countryName: "$country.name",
+      countryWikipediaLink: "$country.wikipedia_link"
+  }}
+])
+
+db.countries.aggregate([
+  { $lookup: { from: "continents", localField: "continent_id", foreignField: "_id", as: "continent" } },
+  { $unwind: "$continent" },
+  { $project: {
+      id: "$_id",
+      name: 1,
+      wikipediaLink: "$wikipedia_link",
+      isoNumeric: "$iso_numeric",
+      isoAlpha2: "$iso_alpha2",
+      isoAlpha3: "$iso_alpha3",
+      flag: 1,
+      continentId: "$continent._id",
+      continentName: "$continent.name",
+      continentWikipediaLink: "$continent.wikipedia_link"
+  }}
+])
+
+db.cities.aggregate([
+  { $lookup: { from: "countries", localField: "country_id", foreignField: "_id", as: "country" } },
+  { $unwind: "$country" },
+  { $lookup: { from: "continents", localField: "country.continent_id", foreignField: "_id", as: "continent" } },
+  { $unwind: "$continent" },
+  { $project: {
+      id: "$_id",
+      name: 1,
+      wikipediaLink: "$wikipedia_link",
+      countryId: "$country._id",
+      countryName: "$country.name",
+      countryWikipediaLink: "$country.wikipedia_link",
+      continentId: "$continent._id",
+      continentName: "$continent.name",
+      continentWikipediaLink: "$continent.wikipedia_link"
+  }}
+])
+
+db.persons.aggregate([
+  { $lookup: { from: "cities", localField: "birth_city_id", foreignField: "_id", as: "city" } },
+  { $unwind: "$city" },
+  { $lookup: { from: "countries", localField: "city.country_id", foreignField: "_id", as: "country" } },
+  { $unwind: "$country" },
+  { $lookup: { from: "continents", localField: "country.continent_id", foreignField: "_id", as: "continent" } },
+  { $unwind: "$continent" },
+  { $project: {
+      id: "$_id",
+      name: 1,
+      birthDate: "$birth_date",
+      wikipediaLink: "$wikipedia_link",
+      city: "$city.name",
+      country: "$country.name",
+      continent: "$continent.name"
+  }}
+])
+
+db.media_person.aggregate([
+  { $lookup: { from: "media", localField: "media_id", foreignField: "_id", as: "media" } },
+  { $unwind: "$media" },
+  { $lookup: { from: "persons", localField: "person_id", foreignField: "_id", as: "person" } },
+  { $unwind: "$person" },
+  { $project: { name: "$media.name", releaseDate: "$media.release_date", person: "$person.name" } },
+  { $sort: { name: 1, releaseDate: 1, person: 1 } }
+])
+
+db.media_person.aggregate([
+  { $lookup: { from: "media", localField: "media_id", foreignField: "_id", as: "media" } },
+  { $unwind: "$media" },
+  { $lookup: { from: "persons", localField: "person_id", foreignField: "_id", as: "person" } },
+  { $unwind: "$person" },
+  { $project: {
+      id: "$media._id",
+      name: "$media.name",
+      nameOriginal: "$media.name_original",
+      wikipediaLink: "$media.wikipedia_link",
+      releaseDate: "$media.release_date",
+      domestic: "$media.domestic",
+      international: "$media.international",
+      worldwide: "$media.worldwide",
+      budget: "$media.budget",
+      spectatorsFrance: "$media.spectators_france",
+      personName: "$person.name"
+  }}
+])

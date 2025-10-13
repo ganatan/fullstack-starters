@@ -1,0 +1,52 @@
+use("ganatan")
+
+db.continents.insertMany([
+  { code: "AF", name: "Africa", wikipedia_link: "Africa", area: 30370000, population: 1287920000, countries_number: 54 },
+  { code: "AN", name: "Antarctica", wikipedia_link: "Antarctica", area: 14000000, population: 4490, countries_number: 0 },
+  { code: "AS", name: "Asia", wikipedia_link: "Asia", area: 44579000, population: 4545133000, countries_number: 47 },
+  { code: "OC", name: "Australia", wikipedia_link: "Australia_(continent)", area: 8600000, population: 41261000, countries_number: 14 },
+  { code: "EU", name: "Europe", wikipedia_link: "Europe", area: 10180000, population: 742648000, countries_number: 45 },
+  { code: "NA", name: "North America", wikipedia_link: "North_America", area: 24709000, population: 587615000, countries_number: 23 },
+  { code: "SA", name: "South America", wikipedia_link: "South_America", area: 17840000, population: 428240000, countries_number: 12 }
+], { ordered: false })
+
+const continents = db.continents.find({ code: { $in: ["AF","AN","AS","OC","EU","NA","SA"] } }).toArray().reduce((a,c)=>{a[c.code]=c._id;return a;},{})
+
+db.countries.insertMany([
+  { name: "United States", wikipedia_link: "United_States", iso_numeric: "840", iso_alpha2: "US", iso_alpha3: "USA", flag: "us.png", continent_id: continents["NA"] },
+  { name: "Jersey", wikipedia_link: "Jersey", iso_numeric: "832", iso_alpha2: "JE", iso_alpha3: "JEY", flag: "je.png", continent_id: continents["EU"] },
+  { name: "Sweden", wikipedia_link: "Sweden", iso_numeric: "752", iso_alpha2: "SE", iso_alpha3: "SWE", flag: "se.png", continent_id: continents["EU"] }
+], { ordered: false })
+
+const countries = db.countries.find({ iso_alpha2: { $in: ["US","JE","SE"] } }).toArray().reduce((a,c)=>{a[c.iso_alpha2]=c._id;return a;},{})
+
+db.cities.insertMany([
+  { name: "New York City", wikipedia_link: "New_York_City", capital: false, country_id: countries["US"] },
+  { name: "Modesto", wikipedia_link: "Modesto,_California", capital: false, country_id: countries["US"] },
+  { name: "Syracuse", wikipedia_link: "Syracuse,_New_York", capital: false, country_id: countries["US"] },
+  { name: "Saint Helier", wikipedia_link: "Saint_Helier", capital: true, country_id: countries["JE"] },
+  { name: "Stockholm", wikipedia_link: "Stockholm", capital: true, country_id: countries["SE"] },
+  { name: "Fresno", wikipedia_link: "Fresno,_California", capital: false, country_id: countries["US"] },
+  { name: "Detroit", wikipedia_link: "Detroit", capital: false, country_id: countries["US"] }
+], { ordered: false })
+
+const cities = db.cities.find({ wikipedia_link: { $in: ["New_York_City","Modesto,_California"] } }).toArray().reduce((a,c)=>{a[c.wikipedia_link]=c._id;return a;},{})
+
+db.persons.insertMany([
+  { name: "Robert Downey Jr.", wikipedia_link: "Robert_Downey_Jr.", birth_date: "1965-04-04", birth_city_id: cities["New_York_City"] },
+  { name: "Jeremy Renner", wikipedia_link: "Jeremy_Renner", birth_date: "1971-01-07", birth_city_id: cities["Modesto,_California"] }
+], { ordered: false })
+
+db.media.insertMany([
+  { name: "Iron Man", name_original: "Iron Man", wikipedia_link: "Iron_Man_(2008_film)", release_date: "2008-05-02", domestic: 319000000, international: 264000000, worldwide: 583000000, budget: 140000000, spectators_france: 5800000 },
+  { name: "The Avengers", name_original: "The Avengers", wikipedia_link: "The_Avengers_(2012_film)", release_date: "2012-05-04", domestic: 623000000, international: 896000000, worldwide: 1519000000, budget: 220000000, spectators_france: 6800000 }
+], { ordered: false })
+
+const mediaIds = db.media.find({ name: { $in: ["Iron Man","The Avengers"] } }).toArray().reduce((a,m)=>{a[m.name]=m._id;return a;},{})
+const personIds = db.persons.find({ name: { $in: ["Robert Downey Jr.","Jeremy Renner"] } }).toArray().reduce((a,p)=>{a[p.name]=p._id;return a;},{})
+
+db.media_person.insertMany([
+  { media_id: mediaIds["Iron Man"], person_id: personIds["Robert Downey Jr."] },
+  { media_id: mediaIds["The Avengers"], person_id: personIds["Robert Downey Jr."] },
+  { media_id: mediaIds["The Avengers"], person_id: personIds["Jeremy Renner"] }
+], { ordered: false })
