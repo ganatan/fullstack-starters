@@ -1,4 +1,4 @@
-package com.example;
+package com.ganatan.starter;
 
 public class Person {
     private String name;

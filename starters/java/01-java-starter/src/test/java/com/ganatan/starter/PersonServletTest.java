@@ -1,8 +1,11 @@
-package com.example;
+package com.ganatan.starter;
 
 import jakarta.servlet.http.*;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+
+import com.ganatan.starter.PersonServlet;
+
 import java.io.PrintWriter;
 import java.io.StringWriter;
 

@@ -3,7 +3,7 @@
 
   <servlet>
     <servlet-name>PersonServlet</servlet-name>
-    <servlet-class>com.example.PersonServlet</servlet-class>
+    <servlet-class>com.ganatan.starter.PersonServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>

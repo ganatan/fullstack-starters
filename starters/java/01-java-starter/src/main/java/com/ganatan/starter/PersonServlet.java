@@ -1,4 +1,4 @@
-package com.example;
+package com.ganatan.starter;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
