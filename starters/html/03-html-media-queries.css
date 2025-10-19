@@ -1,0 +1,32 @@
+h1 {
+  color: blue;
+}
+
+body {
+  background-color: lightgray;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  background: white;
+  padding: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    background-color: #222;
+    color: white;
+  }
+
+  .container {
+    width: 95%;
+    background: #333;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+}

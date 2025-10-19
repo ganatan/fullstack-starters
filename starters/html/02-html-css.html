@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    p {
+    h1 {
       color: gray;
       background-color: aqua;
     }
@@ -15,17 +15,45 @@
       color: red;
     }
 
-    #buttonID {
+    #buttonId {
       color: green;
     }
+
+    td,
+    th {
+      border: 1px solid #ddd;;
+    }
   </style>
+  <link rel="stylesheet" href="02-html-css.css">
 </head>
 
 <body>
 
+  <h1>html-css</h1>
   <p>paragraph01</p>
   <button class="buttonClass" type="button">Button Component</button>
-  <button id="buttonID" type="button">Button Component</button>
+  <button id="buttonId" type="button">Button Component</button>
+
+
+  <table>
+    <thead>
+      <tr>
+        <th>column01</th>
+        <th>column02</th>
+        <th>column03</th>
+        <th>column04</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>column01</td>
+        <td>column02</td>
+        <td>column03</td>
+        <td>column04</td>
+      </tr>
+    </tbody>
+  </table>
+
 </body>
 
 </html>
