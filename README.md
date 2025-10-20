@@ -13,7 +13,7 @@ These starters provide a common foundation to learn, compare, and quickly set up
 
 ---
 
-**👉 Version française disponible ici** : [[Français]](./README-fr.md)
+**👉 Version française disponible ici** : [Version Française](./README-fr.md)
 
 ---
 
