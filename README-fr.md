@@ -13,7 +13,7 @@ Ces starters fournissent une base commune pour apprendre, comparer et mettre rap
 
 ---
 
-**👉 English version available here** : [![English](./ui/version-en.png)](./README.md)
+**👉 English version available here** : [![English]](./README.md)
 
 ---
 
