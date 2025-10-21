@@ -8,6 +8,9 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:ci": "ng test --watch=false --browsers=ChromeHeadlessNoSandbox",
+    "test:home": "ng test --include='src/app/pages/home/**/*.spec.ts' --watch=false --browsers=ChromeHeadless",
+    "test:about": "ng test --include='src/app/pages/about/**/*.spec.ts' --watch=false --browsers=ChromeHeadless",
+    "test:contact": "ng test --include='src/app/pages/contact/**/*.spec.ts' --watch=false --browsers=ChromeHeadless",
     "lint": "ng lint"
   },
   "prettier": {
