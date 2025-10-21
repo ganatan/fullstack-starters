@@ -1,32 +1,28 @@
 h1 {
-  color: blue;
-}
-
-body {
-  background-color: lightgray;
   font-family: Arial, sans-serif;
+  color: gray;
 }
 
-.container {
-  width: 80%;
-  margin: auto;
-  background: white;
-  padding: 20px;
+@media (max-width: 575.98px) {
+  h1 { color: red; }
 }
 
-@media screen and (max-width: 600px) {
-  body {
-    background-color: #222;
-    color: white;
-  }
+@media (min-width: 576px) and (max-width: 767.98px) {
+  h1 { color: orange; }
+}
 
-  .container {
-    width: 95%;
-    background: #333;
-  }
+@media (min-width: 768px) and (max-width: 991.98px) {
+  h1 { color: green; }
+}
 
-  h1 {
-    font-size: 1.4rem;
-    text-align: center;
-  }
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  h1 { color: blue; }
+}
+
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  h1 { color: purple; }
+}
+
+@media (min-width: 1400px) {
+  h1 { color: black; }
 }
