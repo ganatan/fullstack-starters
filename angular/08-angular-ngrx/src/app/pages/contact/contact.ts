@@ -6,14 +6,13 @@ import { selectMovie } from '../../state/movie/movie.selectors';
 import * as MovieActions from '../../state/movie/movie.actions';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-contact',
   standalone: true,
   imports: [AsyncPipe, FormsModule],
-  templateUrl: './home.html'
+  templateUrl: './contact.html'
 })
-export class Home {
+export class Contact {
   private store = inject(Store);
   movie$ = this.store.select(selectMovie);
   onMovie(v: string) { this.store.dispatch(MovieActions.set({ movie: v })); }
-  reset() { this.store.dispatch(MovieActions.reset()); }
 }

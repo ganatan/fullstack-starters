@@ -1,1 +1,4 @@
-<p>home works!</p>
+<h1>Home</h1>
+<p>Movie: {{ (movie$|async) }}</p>
+<input [value]="(movie$|async) ?? ''" (input)="onMovie(($any($event.target)).value)" placeholder="Set movie">
+<button (click)="reset()">Reset</button>
