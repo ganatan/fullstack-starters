@@ -7,7 +7,6 @@ import * as MovieActions from '../../state/movie/movie.actions';
 
 @Component({
   selector: 'app-about',
-  standalone: true,
   imports: [AsyncPipe, FormsModule],
   templateUrl: './about.html'
 })

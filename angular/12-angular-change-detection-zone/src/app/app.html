@@ -1,0 +1,26 @@
+<div class="header">
+  <h1>angular-change-detection-zone (zone.js)</h1>
+  <div>items: {{ items.length }}</div>
+  <div>updated: {{ lastBatchSize }}</div>
+  <div>max response time: {{ maxCost.toFixed(3) }} ms</div>
+</div>
+
+<div class="list">
+  @for (item of items; track item.id) {
+    <div class="row">{{ item.value }}</div>
+  }
+</div>
+
+
+<!-- <div class="header">
+  <h1>angular-change-detection-zone (zone.js)</h1>
+  <div>items: {{ items.length }}</div>
+  <div>updated: {{ lastBatchSize }}</div>
+  <div>response time: {{ lastCost.toFixed(3) }} ms</div>
+</div>
+
+<div class="list">
+  @for (item of items; track item.id) {
+    <div class="row">{{ item.value }}</div>
+  }
+</div> -->

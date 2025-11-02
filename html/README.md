@@ -6,5 +6,8 @@
 # Tailwind
   npm install -g @tailwindcss/cli
   tailwindcss --version
+
 # Compilation
   tailwindcss -i .\42-html-tailwind.src.css -o .\42-html-tailwind.css --minify
+
+  tailwindcss -i 42-html-tailwind.src.css -o 42-html-tailwind.css --minify
