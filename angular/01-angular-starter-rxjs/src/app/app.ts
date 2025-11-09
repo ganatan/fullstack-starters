@@ -45,7 +45,7 @@ export class App {
     this.messageFinally = '';
     this.message = '';
     this.rx.loadItemsObservable$().subscribe({
-      next: () => this.message = 'loadItems:next',
+      next: v => this.message = `loadItems:next:${v}`,
       error: () => this.message = 'loadItems:error',
       complete: () => this.messageFinally = 'loadItems:complete'
     });
