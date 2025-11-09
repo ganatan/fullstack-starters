@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <button>Envoyer</button>
+  <br><br>
+
+  <button type="button">Action</button>
+  <br><br>
+
+  <form action="/api/login" method="post">
+    <input type="text" name="username">
+    <button type="submit">Connexion</button>
+  </form>
+  <br><br>
+
+  <form>
+    <input type="text">
+    <button type="reset">Réinitialiser</button>
+  </form>
+  <br><br>
+
+  <button type="submit" name="action" value="delete">Supprimer</button>
+  <br><br>
+
+  <button type="button" disabled>En cours...</button>
+  <br><br>
+
+  <button type="button">
+    <svg width="16" height="16">
+      <circle cx="8" cy="8" r="6"></circle>
+    </svg>
+    Valider
+  </button>
+  <br><br>
+
+  <button type="button" aria-label="Ouvrir la navigation">☰</button>
+  <br><br>
+
+  <button id="open-modal" type="button">Ouvrir</button>
+  <script>
+    document.getElementById('open-modal').addEventListener('click', () => alert('OK'));
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "javascript-non-strict",
+  "version": "1.0.0",
+  "description": "Test Node.js en mode non strict",
+  "main": "app.js",
+  "license": "ISC",
+  "author": "ganatan",
+  "scripts": {
+    "start-non-strict": "node app-non-strict.js",
+    "start-strict": "node app-strict.js",
+    "dev-non-strict": "nodemon app-non-strict.js",
+    "dev-strict": "nodemon app-strict.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
