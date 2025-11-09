@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { Rx } from './services/rx';
+import { Behavior } from './services/behavior';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
@@ -14,14 +14,14 @@ export class App {
   message: string = '';
   messageFinally: string = '';
 
-  constructor(private rx: Rx) {
+  constructor(private behavior: Behavior) {
     console.log('00000000001:App:constructor');
   }
 
-  loadItemsPromise() {
+  loadItems() {
     this.messageFinally = '';
     this.message = '';
-    this.rx.loadItemsPromise()
+    this.behavior.loadItems()
       .then(() => {
         this.message = 'loadItems:then';
       })
@@ -32,23 +32,4 @@ export class App {
         this.messageFinally = 'loadItems:finally';
       })
   }
-
-  async loadItemsAwait() {
-    this.messageFinally = '';
-    this.message = '';
-    await this.rx.loadItemsPromise();
-    this.message = 'loadItems:then';
-    this.messageFinally = 'loadItems:finally';
-  }
-
-  loadItemsObservable() {
-    this.messageFinally = '';
-    this.message = '';
-    this.rx.loadItemsObservable$().subscribe({
-      next: () => this.message = 'loadItems:next',
-      error: () => this.message = 'loadItems:error',
-      complete: () => this.messageFinally = 'loadItems:complete'
-    });
-  }
-
 }
