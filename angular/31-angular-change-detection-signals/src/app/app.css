@@ -1,0 +1,22 @@
+.header {
+  font-family: monospace;
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+.list {
+  font-family: monospace;
+  font-size: 14px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 4px;
+  padding: 8px;
+}
+
+.row {
+  background: #111;
+  color: #0f0;
+  padding: 6px;
+  text-align: center;
+  border-radius: 2px;
+}
