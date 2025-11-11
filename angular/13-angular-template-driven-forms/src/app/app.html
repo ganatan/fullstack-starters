@@ -2,4 +2,32 @@
 <button (click)="changeInput()">Change</button>
 <input [(ngModel)]="name">
 {{ name }}
+
+<h1>Movie</h1>
+
+<form>
+  <label for="name">Name</label>
+  <input id="name" type="text" name="name" [(ngModel)]="name">
+
+  <br><br>
+
+  <label for="releaseDate">Release Date</label>
+  <input id="releaseDate" type="date" name="releaseDate">
+
+  <br><br>
+
+  <label for="franchise">Franchise</label>
+  <input id="franchise" type="checkbox" name="franchise">
+
+  <br><br>
+
+  <label for="budget">Budget</label>
+  <input id="budget" type="number" name="budget">
+
+  <br><br>
+
+  <button type="submit">Valider</button>
+</form>
+
+
 <router-outlet />

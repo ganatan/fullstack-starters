@@ -1,4 +1,14 @@
 <h1>angular-starter-component</h1>
-<app-edit value="toto"></app-edit>
-<button (click)="send()">Send</button>
+<br>
+<h2>app-edit</h2>
+<app-edit value="{{ appEditValue }}"></app-edit><br>
+appEditValue : {{ appEditValue }}<br>
+<br>
+<h2>app-edit-design</h2>
+appEditDesignValue : {{ appEditDesignValue }}<br>
+<app-edit-design value="{{ appEditDesignValue }}"></app-edit-design><br>
+<h2>Actions</h2>
+<button (click)="changeAppEdit()">changeAppEdit</button>
+
 <router-outlet />
+

@@ -2,7 +2,8 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-edit',
-  imports: [],
+  imports: [
+  ],
   templateUrl: './edit.html',
   styleUrl: './edit.css',
 })

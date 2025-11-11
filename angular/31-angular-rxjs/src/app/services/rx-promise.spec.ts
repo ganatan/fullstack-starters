@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { Rx } from './rx';
+import { RxPromise } from './rx-promise';
 
 describe('Behavior', () => {
-  let service: Rx;
+  let service: RxPromise;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(Rx);
+    service = TestBed.inject(RxPromise);
   });
 
   it('should be created', () => {

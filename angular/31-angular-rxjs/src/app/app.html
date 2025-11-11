@@ -1,7 +1,12 @@
-<h1>angular-starter-behaviorsubject</h1>
+<h1>angular-rxjs</h1>
 message : {{ message }}<br>
 messageFinally : {{ messageFinally }}<br>
-<button (click)="loadItemsPromise()">load Items Promise</button>
-<button (click)="loadItemsAwait()">load Items Await</button>
-<button (click)="loadItemsObservable()">load Items Observable</button>
+
+<h2>Promise</h2><br>
+<button (click)="loadItemsPromise()">load Items Promise with then</button><br>
+<button (click)="loadItemsPromiseAwait()">load Items Promise With Await</button><br>
+
+<h2>Observable<br>
+<button (click)="loadItemsObservable()">load Items Observable  with then</button><br>
+
 <router-outlet />

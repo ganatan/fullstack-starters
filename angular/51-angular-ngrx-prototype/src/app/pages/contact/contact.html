@@ -1,0 +1,3 @@
+<h1>Contact</h1>
+<p>Movie: {{ (movie$|async) }}</p>
+<input [value]="(movie$|async) ?? ''" (input)="onMovie(($any($event.target)).value)" placeholder="Set movie">
