@@ -3,10 +3,14 @@ message : {{ message }}<br>
 messageFinally : {{ messageFinally }}<br>
 
 <h2>Promise</h2><br>
-<button (click)="loadItemsPromise()">load Items Promise with then</button><br>
-<button (click)="loadItemsPromiseAwait()">load Items Promise With Await</button><br>
+<button (click)="loadItemsPromise(true)">load Items Promise with then</button><br>
+<button (click)="loadItemsPromise(false)">load Items Promise with catch</button><br><br>
+<button (click)="loadItemsPromiseAwait(true)">load Items Promise With Await</button><br>
+<button (click)="loadItemsPromiseAwait(false)">load Items Promise With Await & catch</button><br>
 
 <h2>Observable<br>
-<button (click)="loadItemsObservable()">load Items Observable  with then</button><br>
+<button (click)="loadItemsObservable()">load Items Observable with then</button><br>
+<button (click)="loadItemsObservableAwait()">load Items Observable with Await</button><br>
+<button (click)="loadItemsObservableAwaitFinalize()">load Items Observable with Await & Finalize</button><br>
 
 <router-outlet />

@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 
 import { RxPromise } from './services/rx-promise';
 import { RxObservable } from './services/rx-observable';
+import { finalize, firstValueFrom, lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -23,37 +24,69 @@ export class App {
     console.log('00000000001:App:constructor');
   }
 
-  loadItemsPromise() {
+  loadItemsPromise(type: boolean) {
     this.messageFinally = '';
     this.message = '';
-    this.rxPromise.loadItemsPromise()
-      .then(() => {
-        this.message = 'loadItems:then';
+    this.rxPromise.loadItemsPromise(type)
+      .then((value) => {
+        this.message = 'loadItemsPromise:then:' + value;
       })
-      .catch(() => {
-        this.message = 'loadItems:catch';
+      .catch((error) => {
+        this.message = 'loadItemsPromise:catch:' + error;
       })
       .finally(() => {
-        this.messageFinally = 'loadItems:finally';
+        this.messageFinally = 'loadItemsPromise:finally';
       })
   }
-
-  async loadItemsPromiseAwait() {
+  async loadItemsPromiseAwait(type: boolean) {
     this.messageFinally = '';
     this.message = '';
-    await this.rxPromise.loadItemsPromise();
-    this.message = 'loadItems:then';
-    this.messageFinally = 'loadItems:finally';
+    try {
+      const result = await this.rxPromise.loadItemsPromise(type);
+      this.message = 'loadItemsPromiseAwait:await:' + result;
+    } catch (error) {
+      this.message = 'loadItemsPromiseAwait:error:' + error;
+    } finally {
+      this.messageFinally = 'loadItemsPromiseAwait:finally';
+    }
   }
 
   loadItemsObservable() {
     this.messageFinally = '';
     this.message = '';
     this.rxObservable.loadItemsObservable$().subscribe({
-      next: v => this.message = `loadItems:next:${v}`,
-      error: () => this.message = 'loadItems:error',
-      complete: () => this.messageFinally = 'loadItems:complete'
+      next: v => this.message = `loadItemsObservable:next:${v}`,
+      error: () => this.message = 'loadItemsObservable:error',
+      complete: () => this.messageFinally = 'loadItemsObservable:complete'
     });
+  }
+
+  async loadItemsObservableAwait() {
+    this.messageFinally = '';
+    this.message = '';
+    try {
+      const v = await lastValueFrom(this.rxObservable.loadItemsObservable$());
+      this.message = `loadItemsObservableAwaitLast:await:${v}`;
+    } catch (error) {
+      this.message = 'loadItemsObservableAwaitLast:error:' + error;
+    } finally {
+      this.messageFinally = 'loadItemsObservableAwaitLast:finally';
+    }
+  }
+
+  async loadItemsObservableAwaitFinalize() {
+    this.messageFinally = '';
+    this.message = '';
+    try {
+      const v = await firstValueFrom(
+        this.rxObservable.loadItemsObservable$().pipe(
+          finalize(() => this.messageFinally = 'loadItemsObservable:complete')
+        )
+      );
+      this.message = `loadItemsObservable:next:${v}`;
+    } catch {
+      this.message = 'loadItemsObservable:error';
+    }
   }
 
 }

@@ -14,10 +14,10 @@ export class RxObservable {
     console.log('00000000001:RxObservable:loadItems');
     return new Observable<boolean>((subscriber) => {
       setTimeout(() => {
-        console.log('00000000001:RxObservable:loadItems:next');
+        console.log('00000000001:RxObservable:loadItems:next:true');
         subscriber.next(true);
         setTimeout(() => {
-          console.log('00000000002:RxObservable:loadItems:next');
+          console.log('00000000002:RxObservable:loadItems:next:false');
           subscriber.next(false);
           setTimeout(() => {
             console.log('00000000003:RxObservable:loadItems:error');

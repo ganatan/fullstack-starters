@@ -9,12 +9,16 @@ export class RxPromise {
     console.log('00000000001:RxPromise:constructor');
   }
 
-  loadItemsPromise(): Promise<boolean> {
+  loadItemsPromise(type: boolean): Promise<boolean> {
     console.log('00000000001:RxPromise:loadItems');
     let result = new Promise<boolean>((resolve, reject) => {
       setTimeout(() => {
         console.log('00000000001:RxPromise:loadItems:resolve');
-        resolve(true);
+        if (type) {
+          resolve(true);
+        } else {
+          reject(false);
+        }
       }, 2000)
     })
     return result;
