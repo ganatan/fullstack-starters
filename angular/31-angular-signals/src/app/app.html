@@ -1,0 +1,16 @@
+<h1>angular-signals</h1>
+
+<ul>
+  <li *ngFor="let movie of movies;">
+    {{ movie }}
+  </li>
+</ul>
+
+
+<ul>
+  @for (movie of movies; track movie) {
+    <li>{{ movie }}</li>
+  }
+</ul>
+
+<router-outlet />
