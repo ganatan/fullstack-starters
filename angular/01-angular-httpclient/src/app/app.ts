@@ -13,9 +13,7 @@ export class App {
   items = inject(Items);
   protected readonly title = signal('angular-starter');
 
-  constructor(
-    // private items:Items
-  ) {
+  constructor() {
     console.log('00000000001:app:constructor');
   }
 
@@ -29,10 +27,11 @@ export class App {
 
   loadItemsObservable() {
     console.log('00000000001:app:loadItems');
+    this.items.loadObservable.
     // this.items.loadObservable$.
-    this.items.loadObservable$().subscribe(value => {
-      console.log('Observable reçu :', value);
-    });
+    // this.items.loadObservable$().subscribe(value => {
+    //   console.log('Observable reçu :', value);
+    // });
 
   }
 }
