@@ -1,51 +1,19 @@
+import { Observable } from "rxjs";
 
-import { Observable } from 'rxjs';
-
-function getItems() {
+function runObservable() {
+  console.log('00000000001:runObservable');
   let result = new Observable(subscriber => {
     subscriber.next(true);
     subscriber.next(false);
-    // subscriber.error(1234);
+    console.log('00000000002:runObservable');
     subscriber.complete();
   })
   return result;
 }
 
-getItems().subscribe({
-  next: v => console.log('next:', v),
-  error: e => console.log('error:', e),
-  complete: () => console.log('complete')
-}
+runObservable().subscribe(
+  {
+    next: value => console.log('reçu:', value),
+    complete: () => console.log('fini')
+  }
 );
-
-// function loadObservable() {
-//   const result$ = new Observable<boolean>(subscriber => {
-//     let i = 0;
-//     setTimeout(() => {
-//       subscriber.next(true)
-//       setTimeout(() => {
-//         subscriber.next(false)
-//         setTimeout(() => {
-//           subscriber.error(false)
-//           setTimeout(() => {
-//             subscriber.complete()
-//           }, 2000)
-//         }, 2000)
-//       }, 2000)
-//     }, 2000)
-//   });
-//   return result$;
-// }
-
-// function getItems(service: Observable<boolean>) {
-//   service.subscribe({
-//     next: v => console.log('next:', v),
-//     error: e => console.log('error:', e),
-//     complete: () => console.log('complete')
-//   });
-
-// }
-
-// let service = loadObservable();
-// getItems(service);
-
