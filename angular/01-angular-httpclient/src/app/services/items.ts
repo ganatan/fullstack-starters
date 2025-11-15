@@ -19,21 +19,7 @@ export class Items {
     return result
   }
 
-  // loadObservable$(): Observable<boolean> {
-  //   console.log('00000000001:Items:load');
-  //   let result$ = new Observable<boolean>(subscriber => {
-  //     setTimeout(() => {
-  //       subscriber.next(true);
-  //       setTimeout(() => {
-  //         subscriber.next(false);
-  //       }, 4000)
-  //     }, 2000)
-  //   })
-  //   return result$
-  // }
-
-
-  loadObservable() {
+  loadObservable$() {
     const result$ = new Observable<boolean>(subscriber => {
       let i = 0;
       setTimeout(() => {

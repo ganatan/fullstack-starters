@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --watch src --exec ts-node src/app.ts",
+    "dev-lab": "nodemon --watch src --exec ts-node src/app-lab.ts",
     "start": "node dist/app.js",
     "build": "tsc",
     "serve": "ts-node src/app.ts"

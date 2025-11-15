@@ -1,0 +1,15 @@
+<h1>angular-subscribe</h1>
+
+<h2>subscribe()</h2>
+<ul>
+  <li *ngFor="let movie of moviesSubscribe">{{ movie }}</li>
+</ul>
+
+<hr>
+
+<h2>| async</h2>
+<ul>
+  <li *ngFor="let movie of (movies$ | async) ?? []">{{ movie }}</li>
+</ul>
+
+<router-outlet />

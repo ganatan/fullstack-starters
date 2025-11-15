@@ -8,8 +8,6 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "test-calculator": "ng test --include='src/app/services/calculator.spec.ts'",
-    "test-counter": "ng test --include='src/app/components/counter/counter.spec.ts'",
     "test:ci": "ng test --watch=false --browsers=ChromeHeadlessNoSandbox",
     "coverage": "ng test --no-watch --code-coverage"
   },

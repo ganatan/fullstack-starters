@@ -27,11 +27,11 @@ export class App {
 
   loadItemsObservable() {
     console.log('00000000001:app:loadItems');
-    this.items.loadObservable.
-    // this.items.loadObservable$.
-    // this.items.loadObservable$().subscribe(value => {
-    //   console.log('Observable reçu :', value);
-    // });
-
+    this.items.loadObservable$().subscribe(
+      {
+        next: v => console.log('reçu:', v),
+        error: e => console.log('error:', e),
+        complete: () => console.log('fini')
+      });
   }
 }
