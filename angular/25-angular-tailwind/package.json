@@ -3,8 +3,11 @@
   "version": "20.3.10",
   "scripts": {
     "ng": "ng",
+    "dev": "ng serve",
     "start": "ng serve",
-    "build": "ng build",
+    "tailwind:dev": "tailwindcss -i ./src/tailwind.css -o ./src/styles.css --watch",
+    "tailwind:build": "tailwindcss -i ./src/tailwind.css -o ./src/styles.css --minify",
+    "build": "npm run tailwind:build && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:ci": "ng test --watch=false --browsers=ChromeHeadlessNoSandbox",
@@ -45,6 +48,7 @@
     "karma-coverage": "2.2.1",
     "karma-jasmine": "5.1.0",
     "karma-jasmine-html-reporter": "2.1.0",
+    "tailwindcss": "4.1.17",
     "typescript": "5.9.2"
   }
 }
