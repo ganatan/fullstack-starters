@@ -1,0 +1,37 @@
+{
+  "name": "app-electron-angular",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main/main.js",
+  "scripts": {
+    "dev": "electron src/main/main.js",
+    "start": "electron src/main/main.js",
+    "build": "electron-builder"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "electron": "^37.2.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.ganatan.dialogconnector",
+    "productName": "dialog-connector",
+    "files": [
+      "src/renderer/angular/dist/angular-starter/browser/**/*",
+      "src/main/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "build"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    }
+  }
+}
