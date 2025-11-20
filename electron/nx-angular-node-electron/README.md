@@ -10,6 +10,12 @@
 - Lint, build, test, e2e, packaging support
 - CI/CD ready
 
+---
+
+**👉 Version française disponible ici** : [Français](./README-fr.md)
+
+---
+
 ## Overview
 Monorepo combining:
 - Electron Desktop
