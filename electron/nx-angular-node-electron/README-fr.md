@@ -13,7 +13,7 @@
 
 ---
 
-**👉 Version française disponible ici** : [Français](./README-fr.md)
+**👉 English version available here** : [English](./README.md)
 
 ---
 
