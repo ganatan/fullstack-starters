@@ -1,99 +1,73 @@
 
-# Nx Angular — Node — Electron Starter
+# Nx Angular — Node — Electron Starter (EN)
 
 <img src="./ui/ganatan-about-github.png" align="right" width="140" height="140" alt="ganatan logo">
 
-## 🎯 Objectifs du projet
+## Project Goals
+- FullStack environment with Angular 20, Node.js TypeScript and Electron
+- Nx monorepo orchestration
+- Electron renderer + Angular UI + Node API
+- Lint, build, test, e2e, packaging support
+- CI/CD ready
 
-- Construire une stack FullStack complète avec Angular 20, Node.js (TypeScript) et Electron
-- Monorepo Nx modulaire
-- Exécution front Angular dans Electron + backend TypeScript
-- Lint, tests unitaires, tests e2e, build, serve, packaging Electron
-- Prêt pour CI/CD
+## Overview
+Monorepo combining:
+- Electron Desktop
+- Angular 20 Web UI
+- Node TypeScript backend
+- Nx executors and task pipeline
 
-## 📘 Table des matières
-
-- Vue d’ensemble
-- Structure du projet
-- Applications
-- Tests Unitaires & E2E
-- Développement
-- Build & Packaging Electron
-- Scripts Nx
-- Architecture
-- Auteur & Licence
-
-## 🧱 Vue d’ensemble
-
-Monorepo combinant:
-- Desktop : Electron (CommonJS)
-- Web : Angular 20
-- API locale : Node TypeScript
-- Orchestration Nx
-
-## 🧬 Structure du projet
-
+## Structure
 ```
 nx-angular-node-electron/
 ├── apps/
-│   ├── backend-typescript/
-│   ├── backend-typescript-e2e/
-│   ├── electron/
-│   ├── electron-e2e/
 │   ├── frontend-angular/
-│   └── frontend-angular-e2e/
-├── tools/scripts/generate-project-structure.ts
-├── mock/
-└── README.md
+│   ├── backend-typescript/
+│   ├── electron/
+│   ├── frontend-angular-e2e/
+│   ├── backend-typescript-e2e/
+│   └── electron-e2e/
+├── tools/scripts/
+└── mock/
 ```
 
-## 🧩 Applications
+## Best Practices — design/
+```
+apps/frontend-angular/design/
+```
+UI prototyping workspace:
+- HTML/CSS/JS prototypes
+- WebSocket tests
+- POC before Angular implementation
+- Faster workflow and clean codebase
 
-### Frontend — Angular 20
-Serve:
+## Applications
+### Angular
 ```
 nx serve frontend-angular
-```
-
-Tests:
-```
 nx test frontend-angular
 nx e2e frontend-angular-e2e
 ```
 
-### Backend — Node TypeScript
-Serve:
+### Node Backend
 ```
 nx serve backend-typescript
-```
-
-Tests:
-```
 nx test backend-typescript
 nx e2e backend-typescript-e2e
 ```
 
-### Electron — Process Main CJS
-Serve:
+### Electron (CJS)
 ```
 nx serve electron
 ```
 
-## 🧪 Tests
-
-```
-nx test <app>
-nx e2e <app>
-```
-
-## ⚙️ Développement
-
+## Development
+Run all apps:
 ```
 nx run-many -t serve -p frontend-angular backend-typescript electron
 ```
 
-## 🏗️ Build & Packaging
-
+## Build & Packaging
 ```
 nx build frontend-angular
 nx build backend-typescript
@@ -101,20 +75,17 @@ nx build electron
 npx electron-builder
 ```
 
-## 🔧 Scripts Nx
+## Nx Commands
+| Command | Description |
+|--------|-------------|
+| nx serve | start app |
+| nx build | build app |
+| nx test | unit tests |
+| nx e2e | end-to-end tests |
 
-| Commande | Description |
-|----------|-------------|
-| nx serve | Démarrer une app |
-| nx build | Compiler |
-| nx test | Tests unitaires |
-| nx e2e | Tests end-to-end |
+## Architecture
+Angular Renderer → Node TS API → Electron Main (CJS)
 
-## 🏛️ Architecture
-
-Angular (renderer) → Backend TS (API) → Electron main (CJS)
-
-## 👤 Auteur & Licence
-
-Auteur : Danny — https://www.ganatan.com  
-Licence : MIT
+## Author
+Danny — https://www.ganatan.com  
+MIT License
