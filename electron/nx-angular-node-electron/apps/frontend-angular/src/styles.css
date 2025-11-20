@@ -1,0 +1,15 @@
+:root {
+  --bg: #f9f9f9;
+  --text: #212529;
+  --card-bg: #ffffff;
+  --input-bg: #e9ecef;
+  --accent: #0d6efd;
+}
+
+html,
+body {
+  min-height: 100%;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "Roboto", sans-serif;
+}

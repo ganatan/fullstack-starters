@@ -1,0 +1,39 @@
+<div class="d-flex layout vh-100">
+
+  <aside class="sidebar flex-shrink-0">
+    <h5>Conversations</h5>
+    <ul class="list-unstyled conversation-list">
+      <li>Conversation 1</li>
+      <li>Conversation 2</li>
+    </ul>
+    <button class="btn btn-success w-100 mt-3" (click)="testWS()">Tester WebSocket</button>
+    <div *ngIf="notification" class="alert alert-secondary mt-3 small">
+      {{ notification }}
+    </div>
+  </aside>
+
+  <main class="flex-grow-1 d-flex flex-column p-3">
+    <h1 class="text-primary mb-0">dialog-connector</h1>
+    <small class="text-secondary">Version Angular</small>
+    <p class="text-secondary mt-0 mb-2 ">
+      useMock : {{ useMock }}<br>
+      Données <strong>{{ useMock ? 'mockées (fictives)' : 'réelles (production)' }}</strong>
+    </p>
+    <div class="d-flex align-items-center mb-2 mt-2">
+      <span class="status-indicator" [class.bg-success]="connected" [class.bg-danger]="!connected"></span>
+      <small>{{ wsStatus }}</small>
+    </div>
+
+    <div class="flex-grow-1 d-flex flex-column gap-2 p-2 border rounded overflow-auto">
+      <div *ngFor="let m of messages" [class]="m.from === 'user' ? 'chat-bubble user' : 'chat-bubble bot'">
+        {{ m.content }}
+      </div>
+    </div>
+    <div class="mt-2 d-flex gap-2">
+      <input type="text" [(ngModel)]="message" class="form-control" placeholder="Tapez votre message...">
+      <button class="btn btn-primary" (click)="sendMessage()">Envoyer</button>
+    </div>
+  </main>
+</div>
+
+<router-outlet></router-outlet>
