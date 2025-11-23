@@ -3,7 +3,7 @@
 <img src="./ui/ganatan-about-github.png" align="right" width="140" height="140" alt="ganatan logo">
 
 
-## 🎯 Objectifs du projet
+## Objectifs du projet
 
 -   Frontend Angular 20, Backend Node.js (TypeScript) et Desktop Electron
 -   Monorepo Nx 
