@@ -1,11 +1,12 @@
 # Nx Angular --- Node --- Electron Starter
 
-`<img src="./ui/ganatan-about-github.png" align="right" width="140" height="140" alt="ganatan logo">`{=html}
+<img src="./ui/ganatan-about-github.png" align="right" width="140" height="140" alt="ganatan logo">
+
 
 ## 🎯 Objectifs du projet
 
 -   Stack FullStack : Angular 20, Node.js (TypeScript) et Electron
--   Monorepo Nx modulaire
+-   Monorepo Nx 
 -   Intégration Angular → Electron
 -   Backend TypeScript servant une API REST
 -   Lint, tests unitaires, e2e, build, packaging Electron
@@ -15,8 +16,8 @@
 # 1. Installation
 
 ``` bash
-git clone <url-du-repo> angular-node-electron
-cd angular-node-electron
+git clone https://github.com/ganatan/nx-angular-node-electron.git
+cd nx-angular-node-electron
 npm install
 ```
 
