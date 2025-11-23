@@ -17,6 +17,7 @@
   },
   "build": {
     "appId": "com.example.simpleelectronbackend",
+    "asar": false,
     "files": [
       "main.js",
       "backend.js",
