@@ -5,7 +5,7 @@
 
 ## 🎯 Objectifs du projet
 
--   Stack FullStack : Angular 20, Node.js (TypeScript) et Electron
+-   Frontend Angular 20, Backend Node.js (TypeScript) et Desktop Electron
 -   Monorepo Nx 
 -   Intégration Angular → Electron
 -   Backend TypeScript servant une API REST
