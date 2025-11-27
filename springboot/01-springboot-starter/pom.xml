@@ -19,7 +19,7 @@
   <description>Starter minimal Spring Boot (Java 25)</description>
 
   <properties>
-    <java.version>25</java.version>
+    <java.version>21</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 

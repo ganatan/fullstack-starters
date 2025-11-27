@@ -1,35 +1,47 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { BehaviorService } from './services/behavior';
 
-import { Behavior } from './services/behavior';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('angular-starter');
+  messageBehaviorSubject = '';
+  messageSubject = '';
+  messagePromise = '';
+  messageObservable = '';
 
-  message: string = '';
-  messageFinally: string = '';
+  constructor(private readonly behaviorService: BehaviorService) {
+    this.behaviorService.behaviorSubject$.subscribe(value => {
+      this.messageBehaviorSubject = value;
+    });
 
-  constructor(private behavior: Behavior) {
-    console.log('00000000001:App:constructor');
+    this.behaviorService.subject$.subscribe(value => {
+      this.messageSubject = value;
+    });
   }
 
-  loadItems() {
-    this.messageFinally = '';
-    this.message = '';
-    this.behavior.loadItems()
-      .then(() => {
-        this.message = 'loadItems:then';
-      })
-      .catch(() => {
-        this.message = 'loadItems:catch';
-      })
-      .finally(() => {
-        this.messageFinally = 'loadItems:finally';
-      })
+  updateBehaviorSubject() {
+    this.behaviorService.updateBehaviorSubject();
+  }
+
+  updateSubject() {
+    this.behaviorService.updateSubject();
+  }
+
+  updatePromise() {
+    this.messagePromise = 'en attente...';
+    this.behaviorService.getPromise().then(value => {
+      this.messagePromise = value;
+    });
+  }
+
+  updateObservable() {
+    this.behaviorService.getObservable().subscribe(value => {
+      this.messageObservable = value;
+    });
   }
 }

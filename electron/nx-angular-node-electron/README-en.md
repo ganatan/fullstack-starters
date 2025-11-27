@@ -11,12 +11,7 @@
 -   TypeScript backend exposing a REST API
 -   Lint, unit tests, e2e tests, build, Electron packaging
 
----
-
-**👉 English version available here** : [English](./README-en.md)
-
----
-
+------------------------------------------------------------------------
 
 # 1. Installation
 
@@ -185,3 +180,4 @@ localhost:3000.
   -----------------------------------------------------------------------
 
 ------------------------------------------------------------------------
+

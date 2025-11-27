@@ -1,5 +1,27 @@
 <h1>angular-starter-behaviorsubject</h1>
-message : {{ message }}<br>
-messageFinally : {{ messageFinally }}<br>
-<button (click)="loadItems()">load Items</button>
-<router-outlet />
+
+
+<h2>BehaviorSubject</h2>
+<p>{{ messageBehaviorSubject }}</p>
+<button (click)="updateBehaviorSubject()">Changer BehaviorSubject</button>
+
+<hr>
+
+<h2>Subject</h2>
+<p>{{ messageSubject }}</p>
+<button (click)="updateSubject()">Changer Subject</button>
+
+<hr>
+
+<h2>Promise</h2>
+<p>{{ messagePromise }}</p>
+<button (click)="updatePromise()">Changer Promise</button>
+
+<hr>
+
+<h2>Observable</h2>
+<p>{{ messageObservable }}</p>
+<button (click)="updateObservable()">Changer Observable</button>
+
+<!-- <router-outlet /> -->
+
