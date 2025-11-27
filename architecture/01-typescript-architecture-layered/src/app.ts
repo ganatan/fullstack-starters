@@ -17,6 +17,15 @@ app.get('/health', (req, res) => {
   res.json({ status: 'ok' })
 })
 
+app.get('/', (req, res) => {
+  res.json({
+    name: 'backend-typescript',
+    version: '1.0.0',
+    status: 'ok',
+    timestamp: new Date().toISOString()
+  })
+})
+
 app.listen(port, () => {
   console.log(`Server listening on http://localhost:${port}`)
 })
