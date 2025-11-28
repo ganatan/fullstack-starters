@@ -2,7 +2,7 @@ package tools;
 
 import java.io.File;
 
-public class GenerateProjectStructure {
+public class GenerateStructure {
 
 	public static void main(String[] args) {
 		String projectPath = ".";
